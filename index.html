@@ -568,6 +568,32 @@
                 }
             });
         });
+
+
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Impede o envio real do formulário
+
+            const email = document.getElementById("loginEmail").value;
+            const password = document.getElementById("loginPassword").value;
+
+            // Validação fictícia de login
+            if (email === "usuario@exemplo.com" && password === "123456") {
+                alert("Login bem-sucedido!");
+
+                // Substituir o botão "Cadastre-se" pelo ícone de perfil
+                document.getElementById("registerItem").style.display = "none";
+
+                const profileIcon = document.createElement("li");
+                profileIcon.classList.add("nav-item");
+                profileIcon.innerHTML = `<a href="#" class="nav-link"><i class="fas fa-user-circle fa-lg"></i></a>`;
+                document.querySelector(".navbar-nav").appendChild(profileIcon);
+
+                // Fecha o modal de login
+                $('#loginModal').modal('hide');
+            } else {
+                alert("Email ou senha incorretos!");
+            }
+        });
     </script>
 
 
