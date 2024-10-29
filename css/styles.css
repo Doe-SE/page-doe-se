@@ -116,6 +116,26 @@ input[type="email"] {
     margin-bottom: 15px;
 }
 
+#faq-section {
+    background: #f8f9fa;
+    padding: 3rem 0;
+}
+
+#faq-section h2 {
+    color: #202020;
+    font-weight: 700;
+}
+
+.accordion-button {
+    font-weight: 500;
+    color: #333;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+
 /* Ajuste para telas pequenas */
 @media (max-width: 768px) {
     .navbar-brand img {
