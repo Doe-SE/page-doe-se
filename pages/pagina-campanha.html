@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Campanha</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/imagem-campanha-rs.png');
+            /* Coloque uma imagem representativa da campanha */
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .button-doar {
+            font-size: 1.5rem;
+            padding: 15px 30px;
+            background-color: #ff6f61;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-doar:hover {
+            background-color: #ff3d2e;
+            color: white;
+            text-decoration: none;
+        }
+
+        .section-info {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header com navegação -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/images/logo.png" alt="Logo DOE-SE" width="30" height="24">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link scroll-link" href="/index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="/pages/campanhas.html">Campanhas</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#beneficios">Como Funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal"
+                        data-target="#loginModal">Login</a></li>
+                <li class="nav-item"><a class="btn btn-primary" href="#" data-toggle="modal"
+                        data-target="#registerModal">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </header>
+    <!-- Seção de Destaque com Imagem e Nome da Campanha -->
+    <div class="hero-section">
+        <h1>Nome da Campanha</h1>
+        <p class="lead">Apoie nossa campanha para alcançar <strong>5000 pessoas</strong> e fazer a diferença.</p>
+        <a href="#" class="button-doar">DOAR AGORA</a>
+    </div>
+
+    <!-- Conteúdo Detalhado -->
+    <div class="container section-info">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Sobre a Campanha</h2>
+                <p>A campanha "Nome da Campanha" tem como objetivo principal arrecadar fundos para ajudar em
+                    [causa/objetivo específico]. Criada por [nome da organização], a campanha busca alcançar um público
+                    de 5000 pessoas e tem como meta arrecadar R$ 10.000.</p>
+
+                <h4>Objetivo da Campanha</h4>
+                <p>Nosso foco é [descrição mais detalhada do objetivo da campanha, por exemplo, fornecer suprimentos
+                    essenciais, financiar educação, etc.]. Queremos causar um impacto real na vida daqueles que mais
+                    precisam.</p>
+
+                <h4>Impacto Esperado</h4>
+                <p>Com a ajuda de nossos doadores, a campanha planeja realizar as seguintes ações:</p>
+                <ul>
+                    <li>Alcançar uma rede de [número] de beneficiários diretos.</li>
+                    <li>Fornecer [quantidade de recursos específicos, como alimentos, materiais escolares, etc.].</li>
+                    <li>Impactar comunidades em [regiões ou locais específicos].</li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card mb-3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Progresso da Campanha</h5>
+                        <p class="card-text">Meta: R$ 10.000</p>
+                        <p class="card-text">Arrecadado até agora: R$ 7.500</p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75"
+                                aria-valuemin="0" aria-valuemax="100">75%</div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="button-doar d-block text-center mt-4">DOAR AGORA</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seção de Testemunhos -->
+    <div class="container section-info">
+        <h3>Depoimentos</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p>"Esta campanha fez a diferença na minha vida e da minha família. Sou muito grato a todos que
+                        contribuíram."</p>
+                    <footer class="blockquote-footer">Beneficiário <cite title="Source Title">Carlos Silva</cite>
+                    </footer>
+                </blockquote>
+            </div>
+            <div class="col-md-6">
+                <blockquote class="blockquote">
+                    <p>"Ao doar para essa causa, eu realmente sinto que estou ajudando a melhorar o mundo."</p>
+                    <footer class="blockquote-footer">Doador <cite title="Source Title">Ana Paula</cite></footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+/* Estilo para o banner principal */
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/banner-6.png');
+    /* substitua com uma imagem apropriada */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 250px 0;
+}
+
+.navbar-brand img {
+    height: 60px; /* Ajuste o tamanho conforme necessário */
+    width: auto;
+}
+
+.banner h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ffc107;
+}
+
+.banner p {
+    font-size: 24px;
+}
+
+/* Estilos para seções */
+.campanhas-destaque h2 {
+    margin-bottom: 40px;
+}
+
+/* Estilo para o botão primário */
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-outline-light:hover {
+    color: #28a745;
+    border-color: #28a745;
+}
+
+/* Estilos para os cards de campanha */
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Footer */
+.text-white h4 {
+    color: #ffc107 !important;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+}
+
+input[type="email"] {
+    border-radius: 0.25rem;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+    .navbar-brand img {
+        height: 40px; /* Tamanho menor para telas pequenas */
+    }
+}
+
+

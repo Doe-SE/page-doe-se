@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Campanhas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+        .card {
+            margin-bottom: 20px;
+        }
+
+        .pagination {
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header com navegação -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="/assets/images/logo.png" alt="Logo DOE-SE" width="30" height="24">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/index.html">Início</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#campanhas">Campanhas</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#beneficios">Como Funciona</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal"
+                        data-target="#loginModal">Login</a></li>
+                <li class="nav-item"><a class="btn btn-primary" href="#" data-toggle="modal"
+                        data-target="#registerModal">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </header>
+    <div class="container">
+        <h1 class="my-4">Campanhas</h1>
+
+        <!-- Filtro -->
+        <div class="mb-4">
+            <input type="text" id="filtro" class="form-control" placeholder="Filtrar por nome ou tipo de campanha">
+        </div>
+
+        <!-- Cards de Campanhas -->
+        <div class="row" id="campanhaContainer">
+            <!-- Exemplo de Card -->
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/assets/images/imagem-campanha-rs.png" class="card-img-top" alt="Nome da Campanha">
+                    <div class="card-body">
+                        <h5 class="card-title">102 Nome da Campanha</h5>
+                        <p class="card-text">Tipo: Tipo da Campanha</p>
+                        <p class="card-text">Alcance: 1000 pessoas</p>
+                        <p class="card-text">Descrição breve da campanha que fala sobre o objetivo e o que ela
+                            representa.</p>
+                        <a href="/pages/pagina-campanha.html" class="btn btn-primary">Ver Campanha</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Adicione mais cards conforme necessário -->
+        </div>
+
+        <!-- Paginação -->
+        <nav>
+            <ul class="pagination">
+                <li class="page-item">
+                    <a class="page-link" href="#">Anterior</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Próximo</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#filtro").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#campanhaContainer .col-md-4").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
