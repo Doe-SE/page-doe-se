@@ -6,108 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doação - Pessoa Física</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap");
+    <link rel="stylesheet" href="/css/doar.css" />
 
-        body {
-            background: linear-gradient(to bottom right, #d0f4de, #f6f8fb);
-            font-family: 'Roboto', Arial, sans-serif;
-        }
-
-        /* Container do formulário */
-        .form-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 2rem auto;
-        }
-
-        /* Título do formulário */
-        .form-title {
-            font-family: "Roboto", sans-serif;
-            font-weight: 700;
-            font-size: 2rem;
-            text-align: center;
-            color: #4a90e2;
-            background: linear-gradient(45deg, #505050, #1f1746);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #525252;
-        }
-
-        /* Texto e botões */
-        .form-section h5,
-        .form-group label,
-        .form-check-label,
-        .btn {
-            color: #333;
-        }
-
-        .btn-primary {
-            background-color: #5cb85c;
-            border-color: #4cae4c;
-        }
-
-        .form-title {
-            text-align: center;
-            margin: 20px 0;
-            font-weight: bold;
-        }
-
-        .form-section {
-            background-color: #e0e0e0;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-
-        .form-section input,
-        .form-section select,
-        .form-section textarea {
-            width: 100%;
-            margin: 5px 0;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        .form-check .form-check-input {
-            margin-right: 8px;
-            /* Ajusta o espaçamento entre checkbox e label */
-        }
-
-        .btn-donate {
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            font-weight: bold;
-            border-radius: 10px;
-            width: 100%;
-            margin-top: 20px;
-            cursor: pointer;
-            font-size: 1.2em;
-        }
-
-        #valorDoacao {
-            display: none;
-        }
-
-        .btn-donate:hover {
-            background-color: #218838;
-        }
-
-        /* Ajustes responsivos */
-        @media (max-width: 500px) {
-            .form-title {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -255,57 +155,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        // Mostrar/esconder botão para abrir o modal de campanhas específicas
-        function toggleModalButton(value) {
-            const btn = document.getElementById("btnSelecionarCampanha");
-            if (value === "especifica") {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-                document.getElementById("campanhaSelecionada").innerHTML = ""; // Limpar seleção anterior
-            }
-        }
-
-        // Selecionar campanha no modal e exibir no formulário
-        function selecionarCampanha(campanha) {
-            document.getElementById(
-                "campanhaSelecionada"
-            ).innerHTML = `<p><strong>Campanha Selecionada:</strong> ${campanha}</p>`;
-            $("#modalCampanhas").modal("hide"); // Fechar o modal
-        }
-
-        // Script para exibir campos personalizados
-        document
-            .getElementById("metodoPagamento")
-            .addEventListener("change", function () {
-                const cartao = document.getElementById("detalhesCartao");
-                if (this.value === "cartao") {
-                    cartao.style.display = "block";
-                } else {
-                    cartao.style.display = "none";
-                }
-            });
-        // Mostrar o campo para valor personalizado
-        $(document).ready(function () {
-            // Seleciona todos os radio buttons e o campo "outro valor"
-            const $radioButtons = $("input[name='valor']");
-            const $outroValor = $("#valorDoacao");
-
-            // Função para exibir ou esconder o campo de valor personalizado
-            function toggleOutroValor() {
-                if ($("input[name='valor']:checked").val() === "outro") {
-                    $outroValor.show().focus(); // Mostra e foca no campo
-                } else {
-                    $outroValor.hide().val(""); // Oculta e limpa o campo
-                }
-            }
-
-            // Adiciona o evento de mudança para cada radio button
-            $radioButtons.on("change", toggleOutroValor);
-        });
-    </script>
+    <script src="/js/doar.js"></script>
 </body>
 
 </html>

@@ -7,15 +7,7 @@
     <title>Página de Campanhas</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/styles.css">
-    <style>
-        .card {
-            margin-bottom: 20px;
-        }
-
-        .pagination {
-            justify-content: center;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/campanhas.css">
 </head>
 
 <body>
@@ -284,17 +276,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            $("#filtro").on("keyup", function () {
-                var value = $(this).val().toLowerCase();
-                $("#campanhaContainer .col-md-4").filter(function () {
-                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
-                });
-            });
-        });
-
-    </script>
+    <script src="/js/campanhas.js"></script>
 </body>
 
 </html>
