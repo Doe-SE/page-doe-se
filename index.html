@@ -32,7 +32,7 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link scroll-link" href="#inicio">Início</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/campanhas.html">Campanhas</a></li>
-                <li class="nav-item"><a class="nav-link scroll-link" href="#beneficios">Como Funciona</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#faq-section">Dúvidas</a></li>
                 <li class="nav-item"><a id="loginLink" class="nav-link" href="#" data-toggle="modal"
                         data-target="#loginModal">Login</a></li>
                 <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary" href="#"
@@ -77,6 +77,7 @@
                             <a href="#" class="btn btn-outline-primary btn-facebook"><i class="fab fa-facebook"></i>
                                 Facebook</a>
                         </div>
+                        <p class="text-center mt-3">Não tem uma conta? <a href="#" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Cadastre-se</a></p>
                     </form>
                 </div>
             </div>
@@ -130,10 +131,10 @@
                                 <label for="cnpj">CNPJ</label>
                                 <input type="text" id="cnpj" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="documento">Documento Comprobatório</label>
                                 <input type="file" id="documento" class="form-control">
-                            </div>
+                            </div> -->
                         </div>
 
                         <!-- Campos comuns a ambos os tipos de usuários -->
@@ -174,9 +175,9 @@
         <div class="container">
             <h1>Faça a Diferença com uma Doação</h1>
             <p>Contribua para campanhas de impacto e ajude a transformar vidas.</p>
-            <a href="pages/doar.html" class="btn btn-lg btn-success">Doe
+            <a href="pages/campanhas.html" class="btn btn-lg btn-success">Doe
                 Agora</a>
-            <a href="pages/criar-campanha.html" class="btn btn-lg btn-outline-light" >Crie uma Campanha</a>
+            <a href="pages/criar-campanha.html" class="btn btn-lg btn-outline-light">Crie uma Campanha</a>
         </div>
     </section>
 
@@ -224,112 +225,88 @@
         </div>
     </section>
 
-    <!-- <section id="campaigns" class="campaigns section">
-        <div class="container">
-            <h2>Campanhas Ativas</h2>
-            <div class="glider-contain">
-                <button class="glider-prev">«</button>
-                <div class="glider">
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Educação</h3>
-                        <p>Apoie projetos educacionais que oferecem oportunidades para crianças e adultos.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Saúde</h3>
-                        <p>Contribua para iniciativas que melhoram o acesso à saúde em comunidades carentes.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Educação</h3>
-                        <p>Apoie projetos educacionais que oferecem oportunidades para crianças e adultos.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Saúde</h3>
-                        <p>Contribua para iniciativas que melhoram o acesso à saúde em comunidades carentes.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Educação</h3>
-                        <p>Apoie projetos educacionais que oferecem oportunidades para crianças e adultos.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Saúde</h3>
-                        <p>Contribua para iniciativas que melhoram o acesso à saúde em comunidades carentes.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Educação</h3>
-                        <p>Apoie projetos educacionais que oferecem oportunidades para crianças e adultos.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Saúde</h3>
-                        <p>Contribua para iniciativas que melhoram o acesso à saúde em comunidades carentes.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Educação</h3>
-                        <p>Apoie projetos educacionais que oferecem oportunidades para crianças e adultos.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                    <div class="campaign">
-                        <img src="assets/images/imagem-campanha-rs.png" alt="Imagem da Campanha de Educação"
-                            class="campaign-image">
-                        <h3>Campanha de Saúde</h3>
-                        <p>Contribua para iniciativas que melhoram o acesso à saúde em comunidades carentes.</p>
-                        <button class="btn">Saiba Mais</button>
-                    </div>
-                </div>
-                <button class="glider-next">»</button>
-                <div role="tablist" class="dots"></div>
-            </div>
-        </div>
-    </section> -->
-
     <!-- Benefícios e Funcionalidades -->
-    <section id="beneficios" class="benefits bg-light py-5">
+    <section id="beneficios" class="benefits features bg-light py-5">
         <div class="container text-center">
-            <h2>Por que Escolher Nossa Plataforma?</h2>
-            <p class="lead">Veja os benefícios de usar nossa plataforma para campanhas e doações.</p>
-            <div class="row mt-4">
-                <div class="col-md-4">
+            <div class="block-heading">
+                <h2>Por que Escolher Nossa Plataforma?</h2>
+                <p class="lead">Veja os benefícios de usar nossa plataforma para campanhas e doações.</p>
+            </div>
+
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-5 feature-box">
                     <i class="icon fas fa-hand-holding-heart fa-3x"></i>
                     <h4>Seguro</h4>
                     <p>Doações seguras e proteção dos seus dados.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-5 feature-box">
                     <i class="icon fas fa-globe fa-3x"></i>
                     <h4>Impacto Global</h4>
                     <p>Campanhas que alcançam diversas causas ao redor do mundo.</p>
                 </div>
-                <div class="col-md-4">
-                    <i class="icon fas fa-users fa-3x"></i>
+                <div class="col-md-5 feature-box">
+                    <i class="icon fas fa-rocket fa-3x"></i>
                     <h4>Comunidade Unida</h4>
                     <p>Apoie campanhas junto a uma comunidade solidária.</p>
                 </div>
+                <div class="col-md-5 feature-box">
+                    <i class="icon fas fa-refresh fa-3x"></i>
+                    <h4>Sempre Atualizada</h4>
+                    <p>Ambiente amigável com as pessoas certas para Doar.</p>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Seção de Testemunhos -->
+    <section class="clean-block clean-testimonials dark">
+        <div class="container">
+            <div class="block-heading m-4">
+                <h2 class="text-center">Testemunhos</h2>
+                <p class="lead text-center">Veja o que nossos usuários têm a dizer sobre a experiência com a plataforma.</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card clean-testimonial-item border-0 rounded-0">
+                        <div class="card-body" style="background-color: rgb(233, 233, 233);">
+                            <p class="card-text">"A plataforma é muito fácil de usar e me permitiu contribuir para
+                                causas que realmente me importam."
+                            </p>
+                            <div class="meta text-center"><img class="rounded-circle"  src="assets/images/person-femme.jpg">
+                                <h5>Maria Oliveira</h5>
+                                <p>Aracaju, SE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card clean-testimonial-item border-0 rounded-0">
+                        <div class="card-body" >
+                            <p class="card-text">"Fiquei impressionado com a variedade de campanhas disponíveis e a
+                                transparência do processo de doação."</p>
+                            <div class="meta text-center"><img class="rounded-circle" src="assets/images/person-man-1.jpg">
+                                <h5>João Silva</h5>
+                                <p>São Paulo, SP</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card clean-testimonial-item border-0  rounded-0">
+                        <div class="card-body"  style="background-color: rgb(233, 233, 233);">
+                            <p class="card-text">"A plataforma me ajudou a encontrar uma maneira fácil de contribuir para
+                                causas sociais e fazer a diferença."</p>
+                            <div class="meta text-center"><img
+                                    class="rounded-circle" src="assets/images/person-man.jpeg">
+                                <h5>Felipe Santos</h5>
+                                <p>Recife, PE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </section>
 
     <!-- Seção de Perguntas Frequentes -->
@@ -372,25 +349,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Coluna da Direita -->
-                <div class="col-md-6">
-                    <div class="accordion" id="accordionRight">
-                        <!-- Pergunta 3 -->
+                        <!-- Pergunta 3 -->                        
                         <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
+                            <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Posso escolher para qual campanha doar?
+                                    Pode desistir da doação?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#accordionRight">
+                                data-bs-parent="#accordionLeft">
                                 <div class="accordion-body">
-                                    Sim, você pode escolher a campanha específica na qual deseja fazer a sua
-                                    contribuição.
+                                    Sim, você pode desistir da doação a qualquer momento, bastando informar a organização responsável. É importante comunicar para que possamos gerenciar adequadamente as contribuições.
                                 </div>
                             </div>
                         </div>
@@ -399,14 +369,66 @@
                             <h2 class="accordion-header" id="headingFour">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                    Como faço para acompanhar minha doação?
+                                    Como as doações são entregues?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionLeft">
+                                <div class="accordion-body">
+                                    As doações podem ser realizadas por meio de envio pelos Correios ou por transportadora.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna da Direita -->
+                <div class="col-md-6">
+                    <div class="accordion" id="accordionRight">
+                        <!-- Pergunta 5 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Posso escolher para qual campanha doar?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionRight">
+                                <div class="accordion-body">
+                                    Sim, você pode escolher a campanha específica na qual deseja fazer a sua
+                                    contribuição.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pergunta 6 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    Como faço para acompanhar minha doação?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
                                 data-bs-parent="#accordionRight">
                                 <div class="accordion-body">
                                     Ao acessar sua conta, você poderá ver o histórico das doações e o andamento das
                                     campanhas.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Pergunta 7 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Quem pode criar campanhas?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                                data-bs-parent="#accordionRight">
+                                <div class="accordion-body">
+                                    Só as empresas podem criar campanhas.
                                 </div>
                             </div>
                         </div>
@@ -415,7 +437,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Footer -->
     <footer class="bg-dark text-white pt-4">
