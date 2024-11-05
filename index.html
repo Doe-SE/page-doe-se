@@ -18,33 +18,28 @@
 
 <body>
 
-    <!-- Header com navegação -->
+    <!-- Header com Navegação -->
     <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="index.html"
             style="font-weight: 600; color: rgb(73, 74, 95); font-family: fantasy;">
             <img src="assets/images/logo-banner.png" alt="Logo DOE-SE" width="30" height="24">DOE-SE
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link scroll-link" href="#inicio">Início</a></li>
                 <li class="nav-item"><a class="nav-link" href="pages/campanhas.html">Campanhas</a></li>
                 <li class="nav-item"><a class="nav-link scroll-link" href="#faq-section">Dúvidas</a></li>
-                <li class="nav-item"><a id="loginLink" class="nav-link" href="#" data-toggle="modal"
-                        data-target="#loginModal">Login</a></li>
+                <li class="nav-item"><a id="loginLink" class="nav-link" href="#" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">Login</a></li>
                 <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary" href="#"
-                        data-toggle="modal" data-target="#registerModal">Cadastre-se</a></li>
+                        data-bs-toggle="modal" data-bs-target="#registerModal">Cadastre-se</a></li>
             </ul>
         </div>
     </header>
-
-    <!-- <div id="alertContainer" class="alert alert-success" style="display: none;">
-        <span id="alertMessage"></span>
-        <button type="button" onclick="closeAlert()">Fechar</button>
-    </div> -->
 
     <!-- Modal de Login -->
     <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -52,32 +47,31 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form id="loginForm">
-                        <div class="form-group">
-                            <label for="email">Email</label>
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email</label>
                             <input type="email" class="form-control" id="loginEmail" placeholder="Seu email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Senha</label>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="loginPassword" placeholder="Sua senha"
                                 required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
                         <p class="text-center mt-3">Ou faça login com:</p>
                         <div class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-outline-primary mr-2 btn-google"><i class="fab fa-google"></i>
+                            <a href="#" class="btn btn-outline-primary me-2 btn-google"><i class="fab fa-google"></i>
                                 Google</a>
-                            <a href="#" class="btn btn-outline-dark mr-2 btn-apple"><i class="fab fa-apple"></i>
+                            <a href="#" class="btn btn-outline-dark me-2 btn-apple"><i class="fab fa-apple"></i>
                                 Apple</a>
                             <a href="#" class="btn btn-outline-primary btn-facebook"><i class="fab fa-facebook"></i>
                                 Facebook</a>
                         </div>
-                        <p class="text-center mt-3">Não tem uma conta? <a href="#" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Cadastre-se</a></p>
+                        <p class="text-center mt-3">Não tem uma conta? <a href="#" data-bs-toggle="modal"
+                                data-bs-target="#registerModal" data-bs-dismiss="modal">Cadastre-se</a></p>
                     </form>
                 </div>
             </div>
@@ -90,20 +84,18 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="registerModalLabel">Cadastro de Usuário</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!-- Alerta de sucesso dentro do Modal de Cadastro Completo -->
                     <div id="registerAlertContainer" class="alert alert-success mt-3" style="display: none;">
                         <span id="alertMessage"></span>
-                        <button type="button" class="close" onclick="closeAlert()">&times;</button>
+                        <button type="button" class="btn-close" aria-label="Close" onclick="closeAlert()"></button>
                     </div>
                     <form id="userForm" class="p-4">
-                        <div class="form-group">
-                            <label for="tipoUsuario">Selecione o Tipo de Usuário</label>
-                            <select id="tipoUsuario" class="form-control">
+                        <div class="mb-3">
+                            <label for="tipoUsuario" class="form-label">Selecione o Tipo de Usuário</label>
+                            <select id="tipoUsuario" class="form-select">
                                 <option value="fisica">Pessoa Física</option>
                                 <option value="juridica">Pessoa Jurídica</option>
                             </select>
@@ -111,73 +103,104 @@
 
                         <!-- Campos para Pessoa Física -->
                         <div id="fisicaFields" class="user-type-fields">
-                            <div class="form-group">
-                                <label for="nome">Nome Completo</label>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome Completo</label>
                                 <input type="text" id="nome" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <label for="cpf">CPF</label>
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
                                 <input type="text" id="cpf" class="form-control" required>
                             </div>
                         </div>
 
                         <!-- Campos para Pessoa Jurídica -->
                         <div id="juridicaFields" class="user-type-fields" style="display: none;">
-                            <div class="form-group">
-                                <label for="nomeEmpresa">Nome da Empresa</label>
+                            <div class="mb-3">
+                                <label for="nomeEmpresa" class="form-label">Nome da Empresa</label>
                                 <input type="text" id="nomeEmpresa" class="form-control" required>
                             </div>
-                            <div class="form-group">
-                                <label for="cnpj">CNPJ</label>
+                            <div class="mb-3">
+                                <label for="cnpj" class="form-label">CNPJ</label>
                                 <input type="text" id="cnpj" class="form-control" required>
                             </div>
-                            <!-- <div class="form-group">
-                                <label for="documento">Documento Comprobatório</label>
-                                <input type="file" id="documento" class="form-control">
-                            </div> -->
                         </div>
 
                         <!-- Campos comuns a ambos os tipos de usuários -->
-                        <div class="form-group">
-                            <label for="email">Email</label>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
                             <input type="email" id="email" class="form-control" required>
                         </div>
-                        <div class="form-group">
-                            <label for="senha">Senha</label>
+                        <div class="mb-3">
+                            <label for="senha" class="form-label">Senha</label>
                             <input type="password" id="senha" class="form-control" required>
                             <small class="form-text text-muted">A senha deve ter no mínimo 8 caracteres, incluindo
                                 letras e números.</small>
                         </div>
 
                         <!-- Botões de Cadastro via Redes Sociais -->
-                        <div class="social-login text-center mb-3">
+                        <div class="text-center mb-3">
                             <button class="btn btn-outline-primary mb-2 btn-google"><i class="fab fa-google"></i>
-                                Continuar com
-                                Google</button>
+                                Continuar com Google</button>
                             <button class="btn btn-outline-dark mb-2 btn-apple"><i class="fab fa-apple"></i> Continuar
-                                com
-                                Apple</button>
+                                com Apple</button>
                             <button class="btn btn-outline-primary mb-2 btn-facebook"><i class="fab fa-facebook-f"></i>
-                                Continuar com
-                                Facebook</button>
+                                Continuar com Facebook</button>
                         </div>
 
                         <p class="text-center">ou cadastre-se com seu email</p>
-                        <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                        <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal de Conta -->
+    <div class="modal fade" id="accountModal" tabindex="-1" aria-labelledby="accountModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="accountModalLabel">Minha Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail" width="100">
+                        <button class="btn btn-link">Subir/Editar Imagem</button>
+                    </div>
+                    <h5 id="accountName">DOADOR OU EMPRESA</h5>
+                    <p>user@exemplo.com</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" id="myData">Meus Dados</button>
+                        <button class="btn btn-primary" id="myCampaigns">Minhas Campanhas</button>
+                        <button class="btn btn-primary" id="createCampaign">Criar Campanha</button>
+                        <button class="btn btn-secondary" id="settings">Configurações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Dropdown de Perfil -->
+    <!-- <li class="nav-item dropdown" id="profileDropdown" style="display: none;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <i class="fas fa-user-circle fa-lg"></i> Olá, <span id="profileName">Usuário</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
+            <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
+        </ul>
+    </li> -->
+
     <!-- Banner Principal -->
     <section id="inicio" class="banner text-center text-white">
         <div class="container">
             <h1>Faça a Diferença com uma Doação</h1>
             <p>Contribua para campanhas de impacto e ajude a transformar vidas.</p>
-            <a href="pages/campanhas.html" class="btn btn-lg btn-success">Doe
-                Agora</a>
-            <a href="pages/criar-campanha.html" class="btn btn-lg btn-outline-light">Crie uma Campanha</a>
+            <a href="#" id="createCampaignButton" class="btn btn-lg btn-outline-light" data-bs-toggle="modal"
+                data-bs-target="#loginModal">Crie uma Campanha</a>
+            <a href="pages/campanhas.html" class="btn btn-lg btn-success">Doe Agora</a>
         </div>
     </section>
 
@@ -263,7 +286,9 @@
         <div class="container">
             <div class="block-heading m-4">
                 <h2 class="text-center">Testemunhos</h2>
-                <p class="lead text-center">Veja o que nossos usuários têm a dizer sobre a experiência com a plataforma.</p>
+                <p class="lead text-center">Veja o que nossos usuários têm a dizer sobre a experiência com a plataforma.
+                </p>
+
             </div>
             <div class="row">
                 <div class="col-lg-4">
@@ -272,7 +297,8 @@
                             <p class="card-text">"A plataforma é muito fácil de usar e me permitiu contribuir para
                                 causas que realmente me importam."
                             </p>
-                            <div class="meta text-center"><img class="rounded-circle"  src="assets/images/person-femme.jpg">
+                            <div class="meta text-center"><img class="rounded-circle"
+                                    src="assets/images/person-femme.jpg">
                                 <h5>Maria Oliveira</h5>
                                 <p>Aracaju, SE</p>
                             </div>
@@ -281,10 +307,11 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card clean-testimonial-item border-0 rounded-0">
-                        <div class="card-body" >
+                        <div class="card-body">
                             <p class="card-text">"Fiquei impressionado com a variedade de campanhas disponíveis e a
                                 transparência do processo de doação."</p>
-                            <div class="meta text-center"><img class="rounded-circle" src="assets/images/person-man-1.jpg">
+                            <div class="meta text-center"><img class="rounded-circle"
+                                    src="assets/images/person-man-1.jpg">
                                 <h5>João Silva</h5>
                                 <p>São Paulo, SP</p>
                             </div>
@@ -293,11 +320,12 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="card clean-testimonial-item border-0  rounded-0">
-                        <div class="card-body"  style="background-color: rgb(233, 233, 233);">
-                            <p class="card-text">"A plataforma me ajudou a encontrar uma maneira fácil de contribuir para
+                        <div class="card-body" style="background-color: rgb(233, 233, 233);">
+                            <p class="card-text">"A plataforma me ajudou a encontrar uma maneira fácil de contribuir
+                                para
                                 causas sociais e fazer a diferença."</p>
-                            <div class="meta text-center"><img
-                                    class="rounded-circle" src="assets/images/person-man.jpeg">
+                            <div class="meta text-center"><img class="rounded-circle"
+                                    src="assets/images/person-man.jpeg">
                                 <h5>Felipe Santos</h5>
                                 <p>Recife, PE</p>
                             </div>
@@ -349,7 +377,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Pergunta 3 -->                        
+                        <!-- Pergunta 3 -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -360,7 +388,9 @@
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#accordionLeft">
                                 <div class="accordion-body">
-                                    Sim, você pode desistir da doação a qualquer momento, bastando informar a organização responsável. É importante comunicar para que possamos gerenciar adequadamente as contribuições.
+                                    Sim, você pode desistir da doação a qualquer momento, bastando informar a
+                                    organização responsável. É importante comunicar para que possamos gerenciar
+                                    adequadamente as contribuições.
                                 </div>
                             </div>
                         </div>
@@ -375,7 +405,8 @@
                             <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                                 data-bs-parent="#accordionLeft">
                                 <div class="accordion-body">
-                                    As doações podem ser realizadas por meio de envio pelos Correios ou por transportadora.
+                                    As doações podem ser realizadas por meio de envio pelos Correios ou por
+                                    transportadora.
                                 </div>
                             </div>
                         </div>
@@ -469,7 +500,6 @@
                         <li><a href="#" class="text-white">Como Funciona</a></li>
                         <li><a href="#" class="text-white">Doar</a></li>
                         <li><a href="#" class="text-white">Criar Campanha</a></li>
-                        <li><a href="#" class="text-white">Contate-Nos</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mt-4">
@@ -505,11 +535,16 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
 
     <!-- <script src="/js/script.js"></script> -->
 
     <script>
         $(document).ready(function () {
+            // Flag de controle para verificar login
+            let isLoggedIn = false;
+            let userType = ''; // Variável para armazenar o tipo de usuário
+
             // Scroll suave para os links de navegação
             $(".scroll-link").click(function (event) {
                 event.preventDefault();
@@ -517,7 +552,7 @@
                 $("html, body").animate({ scrollTop: $(target).offset().top - 70 }, 800);
             });
 
-            // Aplicando máscara de CPF e CNPJ
+            // Aplicando máscaras de CPF e CNPJ
             $("#cpf").mask("000.000.000-00", { reverse: true });
             $("#cnpj").mask("00.000.000/0000-00", { reverse: true });
 
@@ -526,97 +561,121 @@
                 if ($(this).val() === "fisica") {
                     $("#fisicaFields").show();
                     $("#juridicaFields").hide();
-                    $("#nomeEmpresa").prop("required", false); // Remover "required" para Pessoa Física
-                    $("#cnpj").prop("required", false); // Remover "required" para Pessoa Física
+                    $("#nomeEmpresa").prop("required", false);
+                    $("#cnpj").prop("required", false);
                 } else {
-                    $('#juridicaFields').show();
-                    $('#fisicaFields').hide();
-                    $("#nomeEmpresa").prop("required", true); // Adicionar "required" para Pessoa Jurídica
-                    $("#cnpj").prop("required", true); // Adicionar "required" para Pessoa Jurídica
+                    $("#juridicaFields").show();
+                    $("#fisicaFields").hide();
+                    $("#nomeEmpresa").prop("required", true);
+                    $("#cnpj").prop("required", true);
                 }
-            }).trigger("change"); // Executar a função na carga da página para aplicar o estado inicial corretamente
+            }).trigger("change");
 
-            // Mensagens de simulação para os botões de login social
-            $(".btn-google").on("click", function () {
-                showAlert("Você selecionou login com Google");
-            });
-
-            $(".btn-apple").on("click", function () {
-                showAlert("Você selecionou login com Apple");
-            });
-
-            $(".btn-facebook").on("click", function () {
-                showAlert("Você selecionou login com Facebook");
-            });
-
-            // Função para exibir alertas personalizados no modal de cadastro
-            function showAlert(message) {
+            // Função para exibir alertas personalizados
+            function showAlert(message, type = 'success') {
+                const alertContainer = $("#registerAlertContainer");
+                alertContainer.removeClass('alert-success alert-danger').addClass(`alert-${type}`);
                 $("#alertMessage").text(message);
-                $("#registerAlertContainer").fadeIn();
+                alertContainer.fadeIn();
+                setTimeout(() => alertContainer.fadeOut(), 3000);
             }
 
-            // Função para fechar o alerta
-            function closeAlert() {
-                $("#registerAlertContainer").fadeOut();
-                clearFields();
-            }
-
-            // Função para limpar campos do formulário
-            function clearFields() {
-                $("#nomeEmpresa").val('');
-                $("#cnpj").val('');
-                $("#telefone").val(''); // Limpa o campo de telefone
-                $("#email").val(''); // Limpa o campo de e-mail
-                // Adicione mais campos conforme necessário
-            }
-            // Manipulador de evento para o botão de fechar
-            $(".close").on("click", function () {
-                closeAlert();
-            });
-
-            // Exibir alerta personalizado ao enviar o formulário
+            // Exibir alerta personalizado ao enviar o formulário de cadastro
             $("#userForm").submit(function (event) {
                 event.preventDefault();
-                // Verifica se todos os campos obrigatórios são válidos
                 if (this.checkValidity()) {
-                    showAlert("Cadastro realizado com sucesso!");
+                    showAlert("Cadastro realizado com sucesso!", 'success');
+                    $('#registerModal').modal('hide');
+                    window.location.href = 'pages/criar-campanha.html';
                 } else {
-                    // Força a validação do formulário para exibir mensagens de erro
+                    showAlert('Erro ao cadastrar, por favor, tente novamente.', 'danger');
                     this.reportValidity();
                 }
             });
-        });
 
+            // Função para simular login e exibir dropdown de perfil
+            function showProfileDropdown(username, type) {
+                if (!isLoggedIn) {
+                    $("#loginLink").hide();
+                    $("#registerItem").hide();
 
-        document.getElementById("loginForm").addEventListener("submit", function (event) {
-            event.preventDefault(); // Impede o envio real do formulário
+                    // Adicionar ícone de perfil ao invés dos botões
+                    const profileIcon = `
+            <li class="nav-item dropdown" id="profileDropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fas fa-user-circle fa-lg"></i> Olá, ${username}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
+                    <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
+                </ul>
+            </li>`;
 
-            const email = document.getElementById("loginEmail").value;
-            const password = document.getElementById("loginPassword").value;
+                    $(".navbar-nav").append(profileIcon);
+                    isLoggedIn = true; // Marcar como logado
+                    userType = type;  // Salvar o tipo de usuário
 
-            // Validação fictícia de login
-            if (email === "usuario@exemplo.com" && password === "123456") {
-                alert("Login bem-sucedido!");
-
-                // Substituir o botão "Cadastre-se" pelo ícone de perfil
-                document.getElementById("registerItem").style.display = "none";
-
-                const profileIcon = document.createElement("li");
-                profileIcon.classList.add("nav-item");
-                profileIcon.innerHTML = `<a href="#" class="nav-link"><i class="fas fa-user-circle fa-lg"></i></a>`;
-                document.querySelector(".navbar-nav").appendChild(profileIcon);
-
-                // Remove data-toggle e data-target dos elementos "Login" e "Cadastre-se"
-                document.getElementById("loginLink").removeAttribute("data-toggle");
-                document.getElementById("loginLink").removeAttribute("data-target");
-                document.getElementById("registerLink").removeAttribute("data-toggle");
-                document.getElementById("registerLink").removeAttribute("data-target");
-
-                // Fecha o modal de login
-                $('#loginModal').modal('hide');
-            } else {
-                alert("Email ou senha incorretos!");
+                    // Configurações do modal com base no tipo de usuário
+                    $("#accountName").text(type === 'fisica' ? 'DOADOR' : 'EMPRESA');
+                    $("#myCampaigns").text(type === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas');
+                    if (type === 'fisica') {
+                        $("#createCampaign").hide();
+                    } else {
+                        $("#createCampaign").show();
+                    }
+                }
             }
+
+            // Envia o formulário de login com validação fictícia
+            $("#loginForm").submit(function (event) {
+                event.preventDefault();
+                if (!isLoggedIn) { // Verificar se já está logado
+                    const email = $("#loginEmail").val();
+                    const password = $("#loginPassword").val();
+                    userType = email.endsWith("@empresa.com") ? "juridica" : "fisica"; // Determinar tipo de usuário
+
+                    if ((email === "usuario@exemplo.com" && password === "123456") ||
+                        (email === "usuario@empresa.com" && password === "654321")) {
+                        alert("Login bem-sucedido!");
+
+                        const username = userType === 'fisica' ? 'Alfred' : 'Empresa XYZ';
+                        showProfileDropdown(username, userType);
+
+                        $('#loginModal').modal('hide');
+                    } else {
+                        alert("Email ou senha incorretos!");
+                    }
+                }
+            });
+
+            // Configura o comportamento do botão Sair
+            $(document).on('click', '#logout', function () {
+                $("#profileDropdown").remove();
+                $("#loginLink").show();
+                $("#registerItem").show();
+                isLoggedIn = false; // Resetar estado de login
+                userType = '';      // Resetar tipo de usuário
+            });
+
+            // Abre o modal de cadastro a partir do modal de login
+            $('#loginModal').on('show.bs.modal', function () {
+                $('#registerLink').on('click', function () {
+                    $('#loginModal').modal('hide');
+                    $('#registerModal').modal('show');
+                });
+            });
+
+            // Redirecionamento ao clicar em "Crie uma Campanha"
+            $('#createCampaignButton').click(function (event) {
+                event.preventDefault();
+                if (isLoggedIn && userType === 'juridica') {
+                    window.location.href = 'pages/criar-campanha.html';
+                } else if (!isLoggedIn) {
+                    $('#loginModal').modal('show');
+                } else {
+                    alert("Somente usuários corporativos podem criar campanhas.");
+                }
+            });
         });
     </script>
 

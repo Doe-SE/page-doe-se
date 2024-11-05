@@ -1,103 +1,146 @@
-document.addEventListener('DOMContentLoaded', function() {
-
-  hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-  });
-
-  const gliderElement = document.querySelector('.glider');
-  const glider = new Glider(gliderElement, {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots: '.dots',
-      arrows: {
-          prev: '.glider-prev',
-          next: '.glider-next'
-      },
-      responsive: [
-          {
-              breakpoint: 768,
-              settings: {
-                  slidesToShow: 2,
-                  slidesToScroll: 1
-              }
-          },
-          {
-              breakpoint: 1024,
-              settings: {
-                  slidesToShow: 3,
-                  slidesToScroll: 1
-              }
-          }
-      ]
-  });
-
-  // Função para mover o carrossel automaticamente
-  function autoplay() {
-      let autoplayInterval = setInterval(() => {
-          if (gliderElement.scrollLeft + gliderElement.clientWidth >= gliderElement.scrollWidth) {
-              glider.scrollItem(0); // Volta ao primeiro slide
-          } else {
-              glider.scrollItem(glider.page + 1); // Avança para o próximo slide
-          }
-      }, 3000); // Tempo em milissegundos (3000ms = 3s)
-
-      // Pausar autoplay ao interagir com o carrossel
-      gliderElement.addEventListener('mouseover', () => clearInterval(autoplayInterval));
-      gliderElement.addEventListener('mouseout', () => autoplayInterval = setInterval(() => {
-          if (gliderElement.scrollLeft + gliderElement.clientWidth >= gliderElement.scrollWidth) {
-              glider.scrollItem(0);
-          } else {
-              glider.scrollItem(glider.page + 1);
-          }
-      }, 3000));
-  }
-
-  autoplay();
-});
-
 $(document).ready(function () {
-  // Aplicando máscara de CPF e CNPJ
+  // Flag de controle para verificar login
+  let isLoggedIn = false;
+  let userType = ""; // Variável para armazenar o tipo de usuário
+
+  // Scroll suave para os links de navegação
+  $(".scroll-link").click(function (event) {
+    event.preventDefault();
+    const target = $(this).attr("href");
+    $("html, body").animate({ scrollTop: $(target).offset().top - 70 }, 800);
+  });
+
+  // Aplicando máscaras de CPF e CNPJ
   $("#cpf").mask("000.000.000-00", { reverse: true });
   $("#cnpj").mask("00.000.000/0000-00", { reverse: true });
 
   // Alterna os campos de acordo com o tipo de usuário selecionado
-  $("#tipoUsuario").change(function () {
-    if ($(this).val() === "fisica") {
-      $("#fisicaFields").show();
-      $("#juridicaFields").hide();
+  $("#tipoUsuario")
+    .change(function () {
+      if ($(this).val() === "fisica") {
+        $("#fisicaFields").show();
+        $("#juridicaFields").hide();
+        $("#nomeEmpresa").prop("required", false);
+        $("#cnpj").prop("required", false);
+      } else {
+        $("#juridicaFields").show();
+        $("#fisicaFields").hide();
+        $("#nomeEmpresa").prop("required", true);
+        $("#cnpj").prop("required", true);
+      }
+    })
+    .trigger("change");
+
+  // Função para exibir alertas personalizados
+  function showAlert(message, type = "success") {
+    const alertContainer = $("#registerAlertContainer");
+    alertContainer
+      .removeClass("alert-success alert-danger")
+      .addClass(`alert-${type}`);
+    $("#alertMessage").text(message);
+    alertContainer.fadeIn();
+    setTimeout(() => alertContainer.fadeOut(), 3000);
+  }
+
+  // Exibir alerta personalizado ao enviar o formulário de cadastro
+  $("#userForm").submit(function (event) {
+    event.preventDefault();
+    if (this.checkValidity()) {
+      showAlert("Cadastro realizado com sucesso!", "success");
+      $("#registerModal").modal("hide");
+      window.location.href = "pages/criar-campanha.html";
     } else {
-        $('#juridicaFields').show();
-        $('#fisicaFields').hide();
+      showAlert("Erro ao cadastrar, por favor, tente novamente.", "danger");
+      this.reportValidity();
     }
   });
 
-  // Mensagens de simulação para os botões de login social
-  $(".btn-google").on("click", function () {
-    showAlert("Você selecionou login com Google");
-  });
+  // Função para simular login e exibir dropdown de perfil
+  function showProfileDropdown(username, type) {
+    if (!isLoggedIn) {
+      $("#loginLink").hide();
+      $("#registerItem").hide();
 
-  $(".btn-apple").on("click", function () {
-    showAlert("Você selecionou login com Apple");
-  });
+      // Adicionar ícone de perfil ao invés dos botões
+      const profileIcon = `
+  <li class="nav-item dropdown" id="profileDropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user-circle fa-lg"></i> Olá, ${username}
+      </a>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
+          <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
+      </ul>
+  </li>`;
 
-  $(".btn-facebook").on("click", function () {
-    showAlert("Você selecionou login com Facebook");
-  });
+      $(".navbar-nav").append(profileIcon);
+      isLoggedIn = true; // Marcar como logado
+      userType = type; // Salvar o tipo de usuário
 
-  // Exibir alerta personalizado ao enviar o formulário
-  $("#userForm").submit(function (event) {
+      // Configurações do modal com base no tipo de usuário
+      $("#accountName").text(type === "fisica" ? "DOADOR" : "EMPRESA");
+      $("#myCampaigns").text(
+        type === "fisica" ? "Minhas Doações" : "Minhas Campanhas"
+      );
+      if (type === "fisica") {
+        $("#createCampaign").hide();
+      } else {
+        $("#createCampaign").show();
+      }
+    }
+  }
+
+  // Envia o formulário de login com validação fictícia
+  $("#loginForm").submit(function (event) {
     event.preventDefault();
-    showAlert("Cadastro realizado com sucesso!");
+    if (!isLoggedIn) {
+      // Verificar se já está logado
+      const email = $("#loginEmail").val();
+      const password = $("#loginPassword").val();
+      userType = email.endsWith("@empresa.com") ? "juridica" : "fisica"; // Determinar tipo de usuário
+
+      if (
+        (email === "usuario@exemplo.com" && password === "123456") ||
+        (email === "usuario@empresa.com" && password === "654321")
+      ) {
+        alert("Login bem-sucedido!");
+
+        const username = userType === "fisica" ? "Alfred" : "Empresa XYZ";
+        showProfileDropdown(username, userType);
+
+        $("#loginModal").modal("hide");
+      } else {
+        alert("Email ou senha incorretos!");
+      }
+    }
+  });
+
+  // Configura o comportamento do botão Sair
+  $(document).on("click", "#logout", function () {
+    $("#profileDropdown").remove();
+    $("#loginLink").show();
+    $("#registerItem").show();
+    isLoggedIn = false; // Resetar estado de login
+    userType = ""; // Resetar tipo de usuário
+  });
+
+  // Abre o modal de cadastro a partir do modal de login
+  $("#loginModal").on("show.bs.modal", function () {
+    $("#registerLink").on("click", function () {
+      $("#loginModal").modal("hide");
+      $("#registerModal").modal("show");
+    });
+  });
+
+  // Redirecionamento ao clicar em "Crie uma Campanha"
+  $("#createCampaignButton").click(function (event) {
+    event.preventDefault();
+    if (isLoggedIn && userType === "juridica") {
+      window.location.href = "pages/criar-campanha.html";
+    } else if (!isLoggedIn) {
+      $("#loginModal").modal("show");
+    } else {
+      alert("Somente usuários corporativos podem criar campanhas.");
+    }
   });
 });
-
-// Função para exibir alertas personalizados no modal de cadastro
-function showAlert(message) {
-  $("#alertMessage").text(message);
-  $("#alertContainer").fadeIn();
-}
-
-// Função para fechar o alerta
-function closeAlert() {
-  $("#alertContainer").fadeOut();
-}
