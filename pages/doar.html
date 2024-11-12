@@ -6,107 +6,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Doação - Pessoa Física</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/doar.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
 
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 50px;
+        }
+
+        .form-title {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 30px;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .btn-donate {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            width: 100%;
+        }
+
+        .btn-donate:hover {
+            background-color: #218838;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+    </style>
 </head>
 
 <body>
-    
-    <!-- Título do Formulário -->
-    <h2 class="form-title">Faça uma Doação</h2>
+    <a href="../index.html" class="btn btn-secondary back-button">
+        <i class="fas fa-arrow-left"></i> Voltar para a Página Inicial
+    </a>
 
-    <!-- Formulário de Doação -->
     <div class="container">
+        <h2 class="form-title">Faça uma Doação</h2>
+
         <form>
-            <!-- Escolha de Campanha -->
+            <!-- Escolha de Categoria -->
             <div class="form-section">
-                <h5>Escolha a Campanha</h5>
+                <h5>Escolha a Categoria de Doação</h5>
                 <div class="form-group">
-                    <label>Campanha</label>
-                    <select id="campanha" required onchange="toggleModalButton(this.value)">
-                        <option value="">Selecione uma opção</option>
-                        <option value="qualquer">Doar para Campanhas em Geral</option>
-                        <option value="campanha1">Educação para Todos</option>
-                        <option value="campanha2">
-                            Ajuda a Famílias em Situação de Risco
-                        </option>
-                        <option value="campanha3">Saúde e Bem-Estar</option>
-                        <option value="campanha4">Combate à Fome</option>
-                        <option value="especifica">Selecionar Campanha Específica</option>
+                    <label>Categoria</label>
+                    <select id="categoria" class="form-control" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="educacao">Educação</option>
+                        <option value="saude">Saúde</option>
+                        <option value="meio_ambiente">Meio Ambiente</option>
+                        <option value="assistencia_social">Assistência Social</option>
+                        <option value="cultura">Cultura e Artes</option>
+                        <option value="esportes">Esportes</option>
+                        <option value="tecnologia">Tecnologia e Inovação</option>
+                        <option value="direitos_humanos">Direitos Humanos</option>
+                        <option value="emergencias">Emergências e Desastres</option>
+                        <option value="animais">Animais</option>
                     </select>
-                </div>
-                <!-- Botão para abrir o modal de seleção de campanha -->
-                <button type="button" class="btn btn-info mt-2" id="btnSelecionarCampanha" style="display: none"
-                    data-toggle="modal" data-target="#modalCampanhas">
-                    Escolher Campanha Específica
-                </button>
-                <!-- Exibição da campanha selecionada -->
-                <div class="mt-2" id="campanhaSelecionada"></div>
-                <div class="form-group">
-                    <label>Mensagem para a campanha (opcional)</label>
-                    <textarea id="mensagem"
-                        placeholder="Deixe uma mensagem para os organizadores ou beneficiários"></textarea>
                 </div>
             </div>
 
-            <!-- Valor da Doação -->
-            <div class="form-section">
-                <h5>Valor da Doação</h5>
+            <!-- Opções Específicas da Categoria -->
+            <div class="form-section" id="opcoesCategorias" style="display: none;">
+                <h5>Escolha uma Opção Específica</h5>
                 <div class="form-group">
-                    <label>Escolha um valor ou insira um valor personalizado</label>
-                    <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
-                        <label class="btn btn-light flex-fill">
-                            <input type="radio" name="valor" value="10" autocomplete="off" />
-                            R$10
-                        </label>
-                        <label class="btn btn-light flex-fill">
-                            <input type="radio" name="valor" value="50" autocomplete="off" />
-                            R$50
-                        </label>
-                        <label class="btn btn-light flex-fill">
-                            <input type="radio" name="valor" value="100" autocomplete="off" />
-                            R$100
-                        </label>
-                        <label class="btn btn-light flex-fill">
-                            <input type="radio" name="valor" value="outro" autocomplete="off" />
-                            Outro
+                    <select id="opcaoEspecifica" class="form-control" required>
+                        <!-- As opções serão preenchidas dinamicamente via JavaScript -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- Tipo de Doação -->
+            <div class="form-section">
+                <h5>Tipo de Doação</h5>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipoDoacaoRadio" id="doacaoOutros"
+                            value="outros" checked>
+                        <label class="form-check-label" for="doacaoOutros">
+                            Doação de itens, tempo ou serviços
                         </label>
                     </div>
-                    <input type="number" id="valorDoacao" placeholder="Outro valor" min="1" class="mt-2" />
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="tipoDoacaoRadio" id="doacaoDinheiro"
+                            value="dinheiro">
+                        <label class="form-check-label" for="doacaoDinheiro">
+                            Doação em dinheiro
+                        </label>
+                    </div>
                 </div>
             </div>
 
-            <!-- Método de Pagamento -->
-            <div class="form-section">
-                <h5>Método de Pagamento</h5>
-                <div class="form-group">
-                    <label>Escolha o método de pagamento</label>
-                    <select id="metodoPagamento" required>
-                        <option value="">Selecione um método</option>
-                        <option value="cartao">Cartão de Crédito</option>
-                        <option value="boleto">Boleto Bancário</option>
-                        <option value="pix">PIX</option>
-                        <option value="paypal">PayPal</option>
-                    </select>
+            <!-- Campos para Doação em Dinheiro (inicialmente ocultos) -->
+            <div id="camposDoacaoDinheiro" style="display: none;">
+                <!-- Valor da Doação -->
+                <div class="form-section">
+                    <h5>Valor da Doação</h5>
+                    <div class="form-group">
+                        <label>Escolha um valor ou insira um valor personalizado</label>
+                        <div class="btn-group btn-group-toggle d-flex mb-3" data-toggle="buttons">
+                            <label class="btn btn-outline-primary flex-fill">
+                                <input type="radio" name="valor" value="10" autocomplete="off" /> R$10
+                            </label>
+                            <label class="btn btn-outline-primary flex-fill">
+                                <input type="radio" name="valor" value="50" autocomplete="off" /> R$50
+                            </label>
+                            <label class="btn btn-outline-primary flex-fill">
+                                <input type="radio" name="valor" value="100" autocomplete="off" /> R$100
+                            </label>
+                            <label class="btn btn-outline-primary flex-fill">
+                                <input type="radio" name="valor" value="outro" autocomplete="off" /> Outro
+                            </label>
+                        </div>
+                        <input type="number" id="valorDoacao" class="form-control" placeholder="Outro valor" min="1" />
+                    </div>
                 </div>
-                <div class="form-group" id="detalhesCartao" style="display: none">
-                    <label>Número do Cartão</label>
-                    <input type="text" id="numeroCartao" placeholder="Digite o número do cartão" />
-                    <label>Nome no Cartão</label>
-                    <input type="text" id="nomeCartao" placeholder="Digite o nome no cartão" />
-                    <label>Data de Validade</label>
-                    <input type="text" id="validadeCartao" placeholder="MM/AA" />
-                    <label>CVV</label>
-                    <input type="text" id="cvvCartao" placeholder="Código de segurança" />
+
+                <!-- Método de Pagamento -->
+                <div class="form-section">
+                    <h5>Método de Pagamento</h5>
+                    <div class="form-group">
+                        <label>Escolha o método de pagamento</label>
+                        <select id="metodoPagamento" class="form-control" required>
+                            <option value="">Selecione um método</option>
+                            <option value="cartao">Cartão de Crédito</option>
+                            <option value="boleto">Boleto Bancário</option>
+                            <option value="pix">PIX</option>
+                            <option value="paypal">PayPal</option>
+                        </select>
+                    </div>
+                    <div id="detalhesCartao" style="display: none;">
+                        <!-- Campos do cartão de crédito aqui -->
+                    </div>
                 </div>
             </div>
+
+            <!-- Campo para Descrição da Doação (para doações não monetárias) -->
+            <div id="camposOutrasFormasDoacao">
+                <div class="form-section">
+                    <h5>Descrição da Doação</h5>
+                    <div class="form-group">
+                        <textarea class="form-control" id="descricaoDoacao" rows="4"
+                            placeholder="Descreva o que você gostaria de doar (itens, tempo, serviços, etc.)"></textarea>
+                    </div>
+                </div>
+            </div>
+
             <!-- Aceite de Termos e Privacidade -->
-            <div class="form-section mt-3">
-                <div class="form-check d-flex align-items-center">
+            <div class="form-section">
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="aceiteTermos" required />
                     <label class="form-check-label" for="aceiteTermos">
-                        Aceito os <a href="#">termos de uso</a> e a
-                        <a href="#">política de privacidade</a>.
+                        Aceito os <a href="#">termos de uso</a> e a <a href="#">política de privacidade</a>.
                     </label>
                 </div>
             </div>
@@ -116,47 +186,108 @@
         </form>
     </div>
 
-    <!-- Modal para Seleção de Campanha Específica -->
-    <div class="modal fade" id="modalCampanhas" tabindex="-1" role="dialog" aria-labelledby="modalCampanhasLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalCampanhasLabel">
-                        Selecionar Campanha
-                    </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Listagem de Campanhas -->
-                    <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action"
-                            onclick="selecionarCampanha('Educação para Todos')">
-                            Educação para Todos
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action"
-                            onclick="selecionarCampanha('Ajuda a Famílias em Situação de Risco')">
-                            Ajuda a Famílias em Situação de Risco
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action"
-                            onclick="selecionarCampanha('Saúde e Bem-Estar')">
-                            Saúde e Bem-Estar
-                        </button>
-                        <button type="button" class="list-group-item list-group-item-action"
-                            onclick="selecionarCampanha('Combate à Fome')">
-                            Combate à Fome
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../js/doar.js"></script>
+    <script>
+        $(document).ready(function () {
+            const opcoesCategoria = {
+                educacao: [
+                    "Bolsas de estudo",
+                    "Material escolar",
+                    "Suporte para infraestrutura educacional",
+                    "Projetos de alfabetização"
+                ],
+                saude: [
+                    "Doações para hospitais",
+                    "Clínicas",
+                    "Pesquisas médicas",
+                    "Tratamentos de doenças",
+                    "Saúde mental"
+                ],
+                meio_ambiente: [
+                    "Projetos de conservação",
+                    "Combate às mudanças climáticas",
+                    "Reciclagem",
+                    "Proteção de animais"
+                ],
+                assistencia_social: [
+                    "Programas de auxílio a pessoas em situação de rua",
+                    "Alimentação",
+                    "Abrigo",
+                    "Inclusão social"
+                ],
+                cultura: [
+                    "Apoio a artistas",
+                    "Eventos culturais",
+                    "Restauração de patrimônios históricos",
+                    "Projetos artísticos"
+                ],
+                esportes: [
+                    "Financiamento de equipes esportivas",
+                    "Eventos esportivos",
+                    "Instalações esportivas",
+                    "Programas de esportes comunitários"
+                ],
+                tecnologia: [
+                    "Apoio a startups",
+                    "Pesquisas tecnológicas",
+                    "Desenvolvimento de novas tecnologias",
+                    "Projetos de inovação"
+                ],
+                direitos_humanos: [
+                    "Iniciativas de promoção de igualdade",
+                    "Defesa dos direitos das minorias",
+                    "Combate à discriminação"
+                ],
+                emergencias: [
+                    "Ajuda humanitária em desastres naturais",
+                    "Resposta a crises sanitárias",
+                    "Auxílio em conflitos armados"
+                ],
+                animais: [
+                    "Suporte a abrigos de animais",
+                    "Resgate de animais",
+                    "Tratamentos veterinários",
+                    "Conservação da vida selvagem"
+                ]
+            };
+
+            $('#categoria').change(function () {
+                const categoria = $(this).val();
+                if (categoria) {
+                    const opcoes = opcoesCategoria[categoria];
+                    let opcoesHtml = '<option value="">Selecione uma opção</option>';
+                    opcoes.forEach(opcao => {
+                        opcoesHtml += `<option value="${opcao}">${opcao}</option>`;
+                    });
+                    $('#opcaoEspecifica').html(opcoesHtml);
+                    $('#opcoesCategorias').show();
+                } else {
+                    $('#opcoesCategorias').hide();
+                }
+            });
+
+            // Lógica para mostrar/ocultar campos baseado no tipo de doação
+            $('input[name="tipoDoacaoRadio"]').change(function () {
+                if (this.value === 'dinheiro') {
+                    $('#camposDoacaoDinheiro').show();
+                    $('#camposOutrasFormasDoacao').hide();
+                } else {
+                    $('#camposDoacaoDinheiro').hide();
+                    $('#camposOutrasFormasDoacao').show();
+                }
+            });
+
+            $('#metodoPagamento').change(function () {
+                if ($(this).val() === 'cartao') {
+                    $('#detalhesCartao').show();
+                } else {
+                    $('#detalhesCartao').hide();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

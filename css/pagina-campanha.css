@@ -30,3 +30,9 @@
 .section-info {
     margin-top: 30px;
 }
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
