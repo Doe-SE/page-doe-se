@@ -60,6 +60,11 @@
                             <input type="password" class="form-control" id="loginPassword" placeholder="Sua senha"
                                 required>
                         </div>
+                        
+                        <div class="text-center "></div>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" data-bs-dismiss="modal">Esqueceu sua senha?</a>
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary w-100">Entrar</button>
                         <p class="text-center mt-3">Ou faça login com:</p>
                         <div class="d-flex justify-content-center">
@@ -135,6 +140,10 @@
                             <input type="password" id="senha" class="form-control" required>
                             <small class="form-text text-muted">A senha deve ter no mínimo 8 caracteres, incluindo
                                 letras e números.</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                            <input type="password" id="confirmarSenha" class="form-control" required>
                         </div>
 
                         <!-- Botões de Cadastro via Redes Sociais -->
@@ -217,7 +226,7 @@
                             <h5 class="card-title">Campanha de Educação</h5>
                             <p class="card-text">Apoie projetos educacionais que oferecem oportunidades para crianças e
                                 adultos.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Doe agora</a>
                         </div>
                     </div>
                 </div>
@@ -228,7 +237,7 @@
                             <h5 class="card-title">Campanha de Saúde</h5>
                             <p class="card-text">Contribua para iniciativas que melhoram o acesso à saúde em comunidades
                                 carentes.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Doe agora</a>
                         </div>
                     </div>
                 </div>
@@ -239,7 +248,7 @@
                             <h5 class="card-title">Campanha de Combate à Fome </h5>
                             <p class="card-text">Contribua para iniciativas que ajudam comunidades em situação de
                                 Vulnerabilidade Social.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Doe Agora</a>
                         </div>
                     </div>
                 </div>
@@ -772,9 +781,6 @@
             initializeInterface();
         });
     </script>
-
-
-
 </body>
 
 </html>
