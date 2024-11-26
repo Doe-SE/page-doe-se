@@ -127,6 +127,11 @@ input[type="email"] {
     text-align: center;
 }
 
+.menu-styles {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+}
+
 .campaign-image {
     width: 100%;
     height: auto;
@@ -182,7 +187,10 @@ input[type="email"] {
     outline: none !important;
 }
 
-
+.navbar-toggler:focus,#registerLink:focus { 
+    outline: none; 
+    box-shadow: none; 
+}
 
 /* Ajuste para telas pequenas */
 @media (max-width: 768px) {

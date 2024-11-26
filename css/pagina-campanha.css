@@ -36,3 +36,9 @@
     top: 20px;
     right: 10px;
 }
+
+.back-button a {
+    color: black;
+    font-size: 1rem;
+    text-decoration: none !important;
+}
