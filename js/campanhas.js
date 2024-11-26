@@ -74,7 +74,7 @@ function criarCardCampanha(campanha) {
                             <div class="progress my-4"> 
                               <div class="progress-bar" role="progressbar" style="background-color:green; width: ${campanha.progresso}%" aria-valuenow="${campanha.progresso}" aria-valuemin="0" aria-valuemax="100">${campanha.progresso}%</div> 
                             </div>
-                            <a href="/pages/pagina-campanha.html?categoria=${campanha.categoria}" class="btn btn-primary">Doe Agora</a>
+                            <a href="pages/pagina-campanha.html?categoria=${campanha.categoria}" class="btn btn-primary">Doe Agora</a>
                         </div>
                     </div>
                 </div>
