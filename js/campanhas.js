@@ -14,7 +14,7 @@ const campanhas = [
     categoria: "Educação",
     alcance: 5000,
     descricao: "Projeto para fornecer material escolar para crianças carentes.",
-    imagem: "../assets/images/educacao.png",
+    imagem: "assets/images/educacao.png",
     progresso: 75, 
   },
   {
