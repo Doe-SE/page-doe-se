@@ -80,6 +80,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!-- Modal de Cadastro Completo -->
@@ -308,7 +309,7 @@
                             <h5 class="card-title">Campanha de Educação</h5>
                             <p class="card-text">Apoie projetos educacionais que oferecem oportunidades para crianças e
                                 adultos.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Ver Campanhas</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
@@ -319,7 +320,7 @@
                             <h5 class="card-title">Campanha de Saúde</h5>
                             <p class="card-text">Contribua para iniciativas que melhoram o acesso à saúde em comunidades
                                 carentes.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Ver Campanhas</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
@@ -330,7 +331,7 @@
                             <h5 class="card-title">Campanha de Combate à Fome </h5>
                             <p class="card-text">Contribua para iniciativas que ajudam comunidades em situação de
                                 Vulnerabilidade Social.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Ver Campanhas</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
@@ -675,7 +676,7 @@
 
             function showAlert(message, type = 'success') {
                 const alertContainer = $("#registerAlertContainer");
-                alertContainer.removeClass('alert-success alert-danger').addClass(`alert-${type}`);
+                alertContainer.removeClass('alert-success alert-danger alert-warning alert-info').addClass(`alert-${type}`);
                 $("#alertMessage").text(message);
                 alertContainer.fadeIn();
                 setTimeout(() => alertContainer.fadeOut(), 3000);
