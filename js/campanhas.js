@@ -22,7 +22,7 @@ const campanhas = [
     categoria: "Saúde",
     alcance: 10000,
     descricao: "Campanha de vacinação e check-up gratuito em comunidades.",
-    imagem: "../assets/images/saude.png",
+    imagem: "assets/images/saude.png",
     progresso: 40,
   },
   {
@@ -31,7 +31,7 @@ const campanhas = [
     alcance: 50000,
     descricao:
       "Iniciativa para plantar árvores e preservar a floresta amazônica.",
-    imagem: "../assets/images/meio-ambiente.jpg",
+    imagem: "assets/images/meio-ambiente.jpg",
     progresso: 20,
   },
   {
@@ -40,7 +40,7 @@ const campanhas = [
     alcance: 2000,
     descricao:
       "Distribuição de cestas básicas para famílias em situação de vulnerabilidade.",
-    imagem: "../assets/images/fome.jpeg",
+    imagem: "assets/images/fome.jpeg",
     progresso: 60,
   },
   {
@@ -48,7 +48,7 @@ const campanhas = [
     categoria: "Cultura e Artes",
     alcance: 3000,
     descricao: "Projeto para levar oficinas de arte para escolas públicas.",
-    imagem: "../assets/images/arte-escola.jpg",
+    imagem: "assets/images/arte-escola.jpg",
     progresso: 85,
   },
   {
@@ -56,7 +56,7 @@ const campanhas = [
     categoria: "Esportes",
     alcance: 1500,
     descricao: "Criação de centros esportivos em comunidades carentes.",
-    imagem: "../assets/images/esportes.jpg",
+    imagem: "assets/images/esportes.jpg",
     progresso: 50,
   },
 ];
