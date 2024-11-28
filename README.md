@@ -1,5 +1,5 @@
 <h1>Doe-SE</h1>
-<hr><p>Projeto criado por alunos de Análise e Desenvolvimento de Sistemas da Universidade Tiradentes junto ao Porto Digital e a empresa GetInfo.</p><h2>General Information</h2>
+<hr><p>Projeto criado por alunos de Análise e Desenvolvimento de Sistemas da Universidade Tiradentes junto ao Porto Digital e a empresa GetInfo.</p><h2>Informações Gerais</h2>
 <hr><ul>
 <li>Projeto desenvolvido para solucionar a problemática da empresa GetInfo em parceria com o Porto Digital.</li>
 </ul><ul>
