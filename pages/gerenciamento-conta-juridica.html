@@ -10,7 +10,18 @@
 </head>
 
 <body>
-    <div class="account-container">
+    <!-- Header com navegação -->
+    <header class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="../index.html"
+            style="font-weight: 600; color: rgb(73, 74, 95); font-family: fantasy;">
+            <img src="../assets/images/logo-banner.png" alt="Logo DOE-SE" width="30" height="24">DOE-SE
+        </a>
+        <!-- Botão Voltar para a Página Inicial -->
+        <div class="back-button">
+            <a href="../index.html" class="btn btn-link">Início</a>
+        </div>
+    </header>
+    <div class="account-container"  style="margin-top: 80px !important">
         <div class="profile-section">
             <div class="profile-picture">
                 <img src="https://via.placeholder.com/100" alt="Profile Image" class="profile-image" id="profileImage">
@@ -54,17 +65,17 @@
                     </div>
                     <div class="gear-container">
                         <span class="gear-icon" onclick="toggleActions(this)">⚙️</span>
-                        <div class="campaign-actions">
-                            <button class="btn btn-outline-info btn-sm">Detalhes</button>
-                            <button class="btn btn-outline-primary btn-sm">Editar</button>
-                            <button class="btn btn-outline-danger btn-sm">Excluir</button>
-                            <div class="d-inline-block toggle-switch">
+                        <div class="campaign-actions me-4">
+                            <button class="btn btn-info btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Detalhes</button>
+                            <button class="btn btn-primary btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Editar</button>
+                            <button class="btn btn-danger btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Excluir</button>
+                            <div class="d-inline-block toggle-switch me-4">
                                 <label>
                                     <input type="checkbox" onchange="toggleLabel(this)" id="checkbox1">
                                     <span class="slider"></span>
                                 </label>
                             </div>
-                            <span class="toggle-label" style="margin-right: -38px;">Ativo</span>
+                            <span class="toggle-label me-4" style="margin-right: -38px;">Ativo</span>
                         </div>
                     </div>
                 </li>
@@ -73,19 +84,19 @@
                         <img src="https://via.placeholder.com/50" alt="Campanha B" class="me-3">
                         3.000 peças de roupas arrecadadas
                     </div>
-                    <div class="gear-container">
+                    <div class="gear-container ">
                         <span class="gear-icon" onclick="toggleActions(this)">⚙️</span>
-                        <div class="campaign-actions">
-                            <button class="btn btn-outline-info btn-sm">Detalhes</button>
-                            <button class="btn btn-outline-primary btn-sm">Editar</button>
-                            <button class="btn btn-outline-danger btn-sm">Excluir</button>
-                            <div class="d-inline-block toggle-switch">
+                        <div class="campaign-actions me-4">
+                            <button class="btn btn-info btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Detalhes</button>
+                            <button class="btn btn-primary btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Editar</button>
+                            <button class="btn btn-danger btn-sm me-4" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Excluir</button>
+                            <div class="d-inline-block toggle-switch me-4">
                                 <label>
                                     <input type="checkbox" onchange="toggleLabel(this)" id="checkbox2">
                                     <span class="slider"></span>
                                 </label>
                             </div>
-                            <span class="toggle-label" style="margin-right: -38px;">Ativo</span>
+                            <span class="toggle-label me-4" style="margin-right: -38px;">Ativo</span>
                         </div>
                     </div>
                 </li>
@@ -97,7 +108,7 @@
 
         <div class="tab-content" id="settings">
             <h5>Configurações</h5>
-            <button class="btn btn-secondary">Alterar Senha</button>
+            <button class="btn btn-secondary mb-2 mt-2">Alterar Senha</button>
             <button class="btn btn-secondary">Configurações de Privacidade</button>
         </div>
 

@@ -5,6 +5,18 @@ body {
     padding: 20px;
     color: #2c2c2c; /* Cinza escuro */
 }
+
+.back-button {
+    position: absolute;
+    right: 10px;
+}
+
+.back-button a {
+    color: black;
+    font-size: 1rem;
+    text-decoration: none !important;
+}
+
 .account-container {
     max-width: 800px;
     margin: 0 auto;
@@ -13,30 +25,40 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
+
+/* Responsividade para a seção de perfil */
 .profile-section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     margin-bottom: 20px;
+    text-align: center; /* Centraliza o texto em telas pequenas */
 }
+
 .profile-picture {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
 }
+
 .profile-image {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     border: 2px solid #87cefa; /* Azul bebê */
 }
+
 .profile-info {
-    flex: 1;
+    flex: 2;
 }
+
 h5 {
     font-weight: bold;
     color: #2c2c2c;
 }
+
 p {
     margin: 0;
     color: #555;
@@ -46,26 +68,32 @@ p {
 .btn-custom {
     margin-top: 10px;
 }
+
 .btn-primary {
     background-color: #87cefa; /* Azul bebê */
     border-color: #87cefa;
 }
+
 .btn-primary:hover {
     background-color: #6db1e0;
     border-color: #6db1e0;
 }
+
 .btn-secondary {
-    background-color: #2c2c2c; /* Cinza escuro */
-    border-color: #2c2c2c;
+    background-color: #2c2c2c !important;
+    border-color: #2c2c2c !important;
 }
+
 .btn-secondary:hover {
     background-color: #464646;
     border-color: #464646;
 }
+
 .btn-link a {
     text-decoration: none;
     color: #87cefa;
 }
+
 .btn-link a:hover {
     text-decoration: underline;
     color: #6db1e0;
@@ -74,12 +102,14 @@ p {
 /* Abas */
 .tabs {
     display: flex;
+    justify-content: space-around;
     border-bottom: 2px solid #e0e0e0;
     margin-bottom: 15px;
 }
+
 .tab {
     flex: 1;
-    padding: 10px 15px;
+    padding: 10px 0;
     text-align: center;
     cursor: pointer;
     border: none;
@@ -88,17 +118,21 @@ p {
     color: #555;
     transition: background-color 0.3s ease;
 }
+
 .tab.active {
     border-bottom: 3px solid #87cefa; /* Azul bebê */
     color: #87cefa;
     font-weight: bold;
 }
+
 .tab:hover {
     background-color: #f0f8ff;
 }
+
 .tab-content {
     display: none;
 }
+
 .tab-content.active {
     display: block;
 }
@@ -109,9 +143,11 @@ p {
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
 .list-group-item:hover {
     background-color: #f7faff;
 }
+
 .button-group .btn {
     min-width: 120px;
     margin-left: 5px;
@@ -120,7 +156,7 @@ p {
 /* Botão Voltar */
 .btn-link {
     color: black; /* Cor do texto */
-    text-decoration: #6db1e0; 
+    text-decoration: none;
 }
 
 .btn-link:hover {
