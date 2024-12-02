@@ -26,10 +26,10 @@ body {
 }
 
 .account-container {
-    max-width: 800px;
+    max-width: 1200px; 
     margin: 0 auto;
     background-color: white;
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -43,6 +43,7 @@ body {
 }
 
 .profile-picture {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -53,7 +54,59 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid var(--cor-primaria);
+    border: 2px solid #87cefa;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* Sobreposição e botão de edição */
+.edit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-picture:hover .edit-overlay {
+    opacity: 1;
+}
+
+.edit-overlay .tooltip {
+    visibility: hidden;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.edit-overlay:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.edit-icon {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .profile-info {
@@ -77,17 +130,18 @@ body {
     font-size: 16px;
     border: none;
     color: var(--cor-texto-secundario);
+    color: #555;
     transition: background-color 0.3s ease;
 }
 
 .tab.active {
-    border-bottom: 3px solid var(--cor-primaria);
-    color: var(--cor-primaria);
+    border-bottom: 3px solid #87cefa;
+    color: #87cefa;
     font-weight: bold;
 }
 
 .tab:hover {
-    background-color: var(--cor-fundo);
+    background-color: #B0E0E6;
 }
 
 .tab-content {
@@ -106,10 +160,12 @@ body {
     cursor: pointer;
     font-size: 24px;
     color: var(--cor-texto-secundario);
+    color: #555;
+    position: relative;
 }
 
 .gear-icon:hover {
-    color: var(--cor-primaria);
+    color: #87cefa;
 }
 
 .campaign-actions {
@@ -128,6 +184,7 @@ body {
     opacity: 1;
     visibility: visible;
     bottom: 0;
+    transform: translateX(0);
 }
 
 .toggle-switch {
@@ -164,7 +221,7 @@ body {
 }
 
 input:checked + .slider {
-    background-color: var(--cor-primaria);
+    background-color: #87cefa;
 }
 
 input:checked + .slider:before {
@@ -174,11 +231,13 @@ input:checked + .slider:before {
 .toggle-label {
     margin-left: 5px;
     line-height: 25px;
-    color: var(--cor-texto-secundario);
+    color: #555;
     font-weight: bold;
 }
 
 .btn-link {
+    color: black;
+    text-decoration: #6db1e0;
     color: black;
     text-decoration: #6db1e0;
 }
