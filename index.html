@@ -798,6 +798,9 @@
                 if (userType === 'juridica') {
                     window.location.href = 'pages/criar-campanha.html';
                 }
+                if (isLoggedIn && userType === 'juridica') {
+                    window.location.href = 'pages/criar-campanha.html';
+                }
             });
 
             $(document).on('click', '#settings', function () {
