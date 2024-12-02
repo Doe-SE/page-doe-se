@@ -9,6 +9,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/glider-js/1.7.7/glider.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOMr40S4B3nY6ZJmY5n7E2CjC9r2xvW3TbkYVh0h" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -36,8 +37,8 @@
                 <li class="nav-item"><a class="nav-link scroll-link" href="#faq-section">Dúvidas</a></li>
                 <li class="nav-item"><a id="loginLink" class="nav-link" href="#" data-bs-toggle="modal"
                         data-bs-target="#loginModal">Login</a></li>
-                <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary" href="pages/cadastro.html"
-                        >Cadastre-se</a></li>
+                <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary"
+                        href="pages/cadastro.html">Cadastre-se</a></li>
             </ul>
         </div>
     </header>
@@ -80,7 +81,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
 
     <!-- Modal de Cadastro Completo -->
@@ -265,14 +266,17 @@
             <div class="row">
                 <!-- Filtro -->
                 <div class="mb-4">
-                    <input type="text" id="filtro" class="form-control"
-                        placeholder="Filtrar por nome ou categoria de campanha" />
+                    <div class="input-group">
+                        <input type="text" id="filtro" class="form-control" placeholder="Filtrar por nome ou categoria de campanha" />
+                        <span class="input-group-text" id="searchIcon">
+                            <i class="fas fa-search"></i>
+                        </span>
+                    </div>
                 </div>
-
+    
                 <div class="row" id="campanhaContainer">
                     <!-- campanhas serão geradas dinamicamente aqui -->
                 </div>
-
             </div>
         </div>
     </section>
@@ -288,7 +292,10 @@
                     <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A DOE-SE é uma solução completa
                         para ajudar você a atingir suas metas
                     </h1>
-                    <p class="lead">A solução completa para gestão e aquisição de doações e doadores, buscando facilitar a jornada de doação pessoa física e jurídica. Com a nossa plataforma você tem diversas formas de processamento de pagamentos, páginas de doação customizadas, fluxos de comunicação personalizados e total controle de dados para otimizar a sua captação de forma intuitiva.</p>
+                    <p class="lead">A solução completa para gestão e aquisição de doações e doadores, buscando facilitar
+                        a jornada de doação pessoa física e jurídica. Com a nossa plataforma você tem diversas formas de
+                        processamento de pagamentos, páginas de doação customizadas, fluxos de comunicação
+                        personalizados e total controle de dados para otimizar a sua captação de forma intuitiva.</p>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                         <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button> -->
                         <button type="button" class="btn btn-outline-secondary btn-lg px-4">Conhecer</button>
@@ -564,8 +571,8 @@
     <footer class="bg-dark text-white pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 mb-4">
-                    <h4>Inscreva-se no Boletim</h4>
+                <div class="col-md-8 mb-4 footer-section">
+                    <h4 class="text-white">Inscreva-se no Boletim</h4>
                     <form>
                         <div class="input-group">
                             <input type="email" class="form-control" placeholder="Seu email" required>
@@ -638,12 +645,21 @@
             let isLoggedIn = JSON.parse(localStorage.getItem(isLoggedInKey)) || false;
             let userType = localStorage.getItem(userTypeKey);
             let username = localStorage.getItem(usernameKey);
-            let redirectToCampaign = false;
+            // let redirectToCampaign = false;
+
+            function redirectToAccountPage() {
+                if (userType === 'fisica') {
+                    window.location.href = '/pages/gerenciamento-conta-fisica.html';
+                } else if (userType === 'juridica') {
+                    window.location.href = '/pages/gerenciamento-conta-juridica.html';
+                }
+            }
 
             function initializeInterface() {
                 if (isLoggedIn) {
                     showProfileDropdown(username, userType);
                     $("#loginForm button[type='submit']").prop('disabled', true);
+                    // redirectToAccountPage(); 
                 } else {
                     $("#loginLink").show();
                     $("#registerItem").show();
@@ -688,20 +704,24 @@
                 $("#registerItem").hide();
 
                 const profileIcon = `
-        <li class="nav-item dropdown" id="profileDropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fas fa-user-circle fa-lg"></i> Olá, ${user}
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
-                <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
-            </ul>
-        </li>`;
+                <li class="nav-item dropdown" id="profileDropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle fa-lg"></i> Olá, ${user}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#" id="accountButton">Conta</a></li>
+                        <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
+                    </ul>
+                </li>`;
 
                 $(".navbar-nav").append(profileIcon);
                 localStorage.setItem(userTypeKey, type);
                 localStorage.setItem(usernameKey, user);
                 localStorage.setItem(isLoggedInKey, true);
+                    // Adicione o evento de clique para redirecionamento
+                $(document).on('click', '#accountButton', function () {
+                    redirectToAccountPage();
+                });
 
                 $("#accountName").text(type === 'fisica' ? 'DOADOR' : 'EMPRESA');
                 $("#myCampaigns").text(type === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas');
@@ -714,19 +734,19 @@
 
             function showAccountMenu() {
                 const mainMenu = `
-        <div class="text-center">
-            <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail" width="100">
-            <button class="btn btn-link">Subir/Editar Imagem</button>
-        </div>
-        <h5 id="accountName">${userType === 'fisica' ? 'DOADOR' : 'EMPRESA'}</h5>
-        <p>${username}</p>
-        <div class="d-grid gap-2">
-            <button class="btn btn-primary" id="myData">Meus Dados</button>
-            <button class="btn btn-primary" id="myCampaigns">${userType === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas'}</button>
-            ${userType === 'juridica' ? '<button class="btn btn-primary" id="createCampaign">Criar Campanha</button>' : ''}
-            <button class="btn btn-secondary" id="settings">Configurações</button>
-        </div>
-        `;
+                <div class="text-center">
+                    <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail" width="100">
+                    <button class="btn btn-link">Subir/Editar Imagem</button>
+                </div>
+                <h5 id="accountName">${userType === 'fisica' ? 'DOADOR' : 'EMPRESA'}</h5>
+                <p>${username}</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" id="myData">Meus Dados</button>
+                    <button class="btn btn-primary" id="myCampaigns">${userType === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas'}</button>
+                    ${userType === 'juridica' ? '<button class="btn btn-primary" id="createCampaign">Criar Campanha</button>' : ''}
+                    <button class="btn btn-secondary" id="settings">Configurações</button>
+                </div>
+                `;
                 $('#accountModal .modal-body').html(mainMenu);
             }
 
@@ -782,11 +802,11 @@
 
             $(document).on('click', '#settings', function () {
                 const content = `
-        <h5>Configurações da Conta:</h5>
-        <button class="btn btn-secondary">Alterar Senha</button>
-        <button class="btn btn-secondary">Configurações de Privacidade</button>
-        <button class="btn btn-link" id="backToMenu">Voltar</button>
-        `;
+                <h5>Configurações da Conta:</h5>
+                <button class="btn btn-secondary">Alterar Senha</button>
+                <button class="btn btn-secondary">Configurações de Privacidade</button>
+                <button class="btn btn-link" id="backToMenu">Voltar</button>
+                `;
                 $('#accountModal .modal-body').html(content);
             });
 
@@ -813,7 +833,14 @@
                     showProfileDropdown(username, userType);
                     isLoggedIn = true;
 
+                                // Salva os dados no localStorage
+                    // localStorage.setItem(userTypeKey, userType);
+                    // localStorage.setItem(usernameKey, username);
+                    // localStorage.setItem(isLoggedInKey, true);
+
                     $('#loginModal').modal('hide');
+
+                    // redirectToAccountPage();
 
                     if (redirectToCampaign && userType === 'juridica') {
                         window.location.href = 'pages/criar-campanha.html';
