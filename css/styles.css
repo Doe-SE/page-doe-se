@@ -53,7 +53,7 @@
 
 /* Footer */
 .text-white h4 {
-    color: #ffc107 !important;
+    color: #a9e1e9 !important;
 }
 
 .feature-box {
@@ -63,13 +63,14 @@
     margin-bottom: 20px;
 }
 
-.feature-box i {
-    /* font-size: 2rem; */
-    color: #5fb6ce;
-}
+
 
 .footer-section a:hover {
     text-decoration: underline;
+}
+
+.footer-section, h4{
+    color: #ffffff !important;
 }
 
 .social-icons a {
@@ -85,6 +86,11 @@ input[type="email"] {
     border-color: #ffc107;
 }
 
+
+.input-group-append button {
+    background-color: #a9e1e9;
+    border-color: #a9e1e9;
+}
 
 .campaigns {
     padding: 40px 0;
@@ -190,6 +196,22 @@ input[type="email"] {
 .navbar-toggler:focus,#registerLink:focus { 
     outline: none; 
     box-shadow: none; 
+}
+
+.input-group {
+    width: 95%;
+}
+
+.input-group-text {
+    background-color: #fff;
+}
+
+#filtro {
+    border-right: none;
+}
+
+#searchIcon {
+    cursor: pointer;
 }
 
 /* Ajuste para telas pequenas */
