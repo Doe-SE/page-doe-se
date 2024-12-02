@@ -1,25 +1,16 @@
-/* Variáveis de cor */
-:root {
-    --cor-fundo: #B0E0E6;
-    --cor-primaria: #87cefa;
-    --cor-secundaria: #6db1e0;
-    --cor-texto: #2c2c2c;
-    --cor-texto-secundario: #555;
-}
-
 /* Configurações gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: var(--cor-fundo);
+    background-color: #B0E0E6;
     padding: 20px;
-    color: var(--cor-texto);
+    color: #2c2c2c;
 }
 
 .account-container {
-    max-width: 800px;
+    max-width: 1200px; 
     margin: 0 auto;
     background-color: white;
-    padding: 20px;
+    padding: 50px;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
@@ -31,6 +22,7 @@ body {
 }
 
 .profile-picture {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,7 +33,59 @@ body {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid var(--cor-primaria);
+    border: 2px solid #87cefa;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+/* Sobreposição e botão de edição */
+.edit-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.profile-picture:hover .edit-overlay {
+    opacity: 1;
+}
+
+.edit-overlay .tooltip {
+    visibility: hidden;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 12px;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.edit-overlay:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.edit-icon {
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .profile-info {
@@ -50,24 +94,24 @@ body {
 
 h5 {
     font-weight: bold;
-    color: var(--cor-texto);
+    color: #2c2c2c;
 }
 
 p {
     margin: 0;
-    color: var(--cor-texto-secundario);
+    color: #555;
 }
 
 /* Botões */
 .btn-primary {
-    background-color: var(--cor-primaria);
-    border-color: var(--cor-primaria);
+    background-color: #87cefa;
+    border-color: #87cefa;
     transition: background-color 0.3s, transform 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: var(--cor-secundaria);
-    border-color: var(--cor-secundaria);
+    background-color: #6db1e0;
+    border-color: #6db1e0;
     transform: translateY(-2px);
 }
 
@@ -95,18 +139,18 @@ p {
     border: none;
     background: none;
     font-size: 16px;
-    color: var(--cor-texto-secundario);
+    color: #555;
     transition: background-color 0.3s ease;
 }
 
 .tab.active {
-    border-bottom: 3px solid var(--cor-primaria);
-    color: var(--cor-primaria);
+    border-bottom: 3px solid #87cefa;
+    color: #87cefa;
     font-weight: bold;
 }
 
 .tab:hover {
-    background-color: var(--cor-fundo);
+    background-color: #B0E0E6;
 }
 
 .tab-content {
@@ -128,12 +172,12 @@ p {
 .gear-icon {
     cursor: pointer;
     font-size: 24px;
-    color: var(--cor-texto-secundario);
+    color: #555;
     position: relative;
 }
 
 .gear-icon:hover {
-    color: var(--cor-primaria);
+    color: #87cefa;
 }
 
 .campaign-actions {
@@ -152,7 +196,7 @@ p {
 .campaign-actions.active {
     opacity: 1;
     visibility: visible;
-transform: translateX(0);
+    transform: translateX(0);
 }
 
 /* Toggle Switch */
@@ -192,7 +236,7 @@ transform: translateX(0);
 }
 
 input:checked + .slider {
-    background-color: var(--cor-primaria);
+    background-color: #87cefa;
 }
 
 input:checked + .slider:before {
@@ -202,16 +246,16 @@ input:checked + .slider:before {
 .toggle-label {
     margin-left: 5px;
     line-height: 25px;
-    color: var(--cor-texto-secundario);
+    color: #555;
     font-weight: bold;
 }
 
 /* Estilo do botão "Voltar para a Página Inicial" */
 .btn-link {
-    color: black; /* Cor do texto */
-    text-decoration: #6db1e0; 
+    color: black;
+    text-decoration: #6db1e0;
 }
 
 .btn-link:hover {
-    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+    text-decoration: underline;
 }
