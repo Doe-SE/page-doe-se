@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/campanhas.css">
 </head>
 
 <body>
@@ -35,8 +36,8 @@
                 <li class="nav-item"><a class="nav-link scroll-link" href="#faq-section">Dúvidas</a></li>
                 <li class="nav-item"><a id="loginLink" class="nav-link" href="#" data-bs-toggle="modal"
                         data-bs-target="#loginModal">Login</a></li>
-                <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary" href="#"
-                        data-bs-toggle="modal" data-bs-target="#registerModal">Cadastre-se</a></li>
+                <li class="nav-item" id="registerItem"><a id="registerLink" class="btn btn-primary" href="pages/cadastro.html"
+                        >Cadastre-se</a></li>
             </ul>
         </div>
     </header>
@@ -59,7 +60,10 @@
                             <label for="loginPassword" class="form-label">Senha</label>
                             <input type="password" class="form-control" id="loginPassword" placeholder="Sua senha"
                                 required>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal"
+                                data-bs-dismiss="modal">Esqueceu sua senha?</a>
                         </div>
+
                         <button type="submit" class="btn btn-primary w-100">Entrar</button>
                         <p class="text-center mt-3">Ou faça login com:</p>
                         <div class="d-flex justify-content-center">
@@ -76,6 +80,7 @@
                 </div>
             </div>
         </div>
+        
     </div>
 
     <!-- Modal de Cadastro Completo -->
@@ -136,6 +141,10 @@
                             <small class="form-text text-muted">A senha deve ter no mínimo 8 caracteres, incluindo
                                 letras e números.</small>
                         </div>
+                        <div class="mb-3">
+                            <label for="confirmarSenha" class="form-label">Confirmar Senha</label>
+                            <input type="password" id="confirmarSenha" class="form-control" required>
+                        </div>
 
                         <!-- Botões de Cadastro via Redes Sociais -->
                         <div class="text-center mb-3">
@@ -165,7 +174,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="text-center">
-                        <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail" width="100">
+                        <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail"
+                            width="100">
                         <button class="btn btn-link">Subir/Editar Imagem</button>
                     </div>
                     <h5 id="accountName">DOADOR OU EMPRESA</h5>
@@ -181,7 +191,7 @@
         </div>
     </div>
 
-        <!-- Dropdown de Perfil -->
+    <!-- Dropdown de Perfil -->
     <!-- <li class="nav-item dropdown" id="profileDropdown" style="display: none;">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
@@ -204,46 +214,127 @@
         </div>
     </section>
 
+    <!-- Barra de Pesquisa -->
+    <!-- <section id="barra-pesquisa" class="py-4 bg-light">
+        <div class="container">
+            <form action="/pages/resultado-pesquisa.html" method="GET">
+                <div class="row g-3 justify-content-center">
+
+                    <div class="col-md-4">
+                        <label for="buscar"><b>Buscar Campanhas</b></label>
+                        <input type="text" id="buscar" name="q" class="form-control"
+                            placeholder="O que você está procurando?" aria-label="Buscar vaquinhas">
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="categoria"><b>Categoria</b></label>
+                        <select id="categoria" name="categoria" class="form-select" aria-label="Selecionar categoria">
+                            <option value="" selected>Todas as categorias</option>
+                            <option value="educacao">Educação</option>
+                            <option value="saude">Saúde</option>
+                            <option value="animais">Animais</option>
+                            
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-3">
+                        <label for="localizacao"><b>Localização</b></label>
+                        <select id="localizacao" name="localizacao" class="form-select"
+                            aria-label="Selecionar localização">
+                            <option value="" selected>Todas as localizações</option>
+                            <option value="sp">São Paulo</option>
+                            <option value="rj">Rio de Janeiro</option>
+                            <option value="ba">Bahia</option>
+                            
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-2 mt-3 mt-md-5">
+                        <button type="submit" class="btn btn-success w-100">Buscar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section> -->
+
+
     <!-- Campanhas em Destaque -->
     <section id="campanhas" class="campanhas-destaque my-5">
         <div class="container">
             <h2 class="text-center">Campanhas em Destaque</h2>
             <div class="row">
+                <!-- Filtro -->
+                <div class="mb-4">
+                    <input type="text" id="filtro" class="form-control"
+                        placeholder="Filtrar por nome ou categoria de campanha" />
+                </div>
+
+                <div class="row" id="campanhaContainer">
+                    <!-- campanhas serão geradas dinamicamente aqui -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="menu-styles" class="menu-styles my-5">
+        <div class="container col-xxl-8 px-4 py-5">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="assets/images/banner.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes"
+                        width="700" height="500" loading="lazy">
+                </div>
+                <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">A DOE-SE é uma solução completa
+                        para ajudar você a atingir suas metas
+                    </h1>
+                    <p class="lead">A solução completa para gestão e aquisição de doações e doadores, buscando facilitar a jornada de doação pessoa física e jurídica. Com a nossa plataforma você tem diversas formas de processamento de pagamentos, páginas de doação customizadas, fluxos de comunicação personalizados e total controle de dados para otimizar a sua captação de forma intuitiva.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                        <!-- <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button> -->
+                        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Conhecer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categorias" class="categorias-destaque my-5">
+        <div class="container">
+            <h2 class="text-center">Categorias de Campanha</h2>
+            <div class="row">
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/images/educacao.png" class="card-img-top" alt="Campanha 1">
+                        <img src="assets/images/educacao.png" class="card-img-top" alt="Categoria 1">
                         <div class="card-body">
                             <h5 class="card-title">Campanha de Educação</h5>
                             <p class="card-text">Apoie projetos educacionais que oferecem oportunidades para crianças e
                                 adultos.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/images/saude.png" class="card-img-top" alt="Campanha 1">
+                        <img src="assets/images/saude.png" class="card-img-top" alt="Categoria 2">
                         <div class="card-body">
                             <h5 class="card-title">Campanha de Saúde</h5>
                             <p class="card-text">Contribua para iniciativas que melhoram o acesso à saúde em comunidades
                                 carentes.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="card">
-                        <img src="assets/images/fome.jpeg" class="card-img-top" alt="Campanha 1">
+                        <img src="assets/images/fome.jpeg" class="card-img-top" alt="Categoria 3">
                         <div class="card-body">
                             <h5 class="card-title">Campanha de Combate à Fome </h5>
                             <p class="card-text">Contribua para iniciativas que ajudam comunidades em situação de
                                 Vulnerabilidade Social.</p>
-                            <a href="pages/pagina-campanha.html" class="btn btn-primary">Saiba Mais</a>
+                            <a href="pages/campanhas.html" class="btn btn-primary">Ver Campanhas</a>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -541,22 +632,34 @@
 
     <script>
         $(document).ready(function () {
-            // Flag de controle para verificar login
-            let isLoggedIn = false;
-            let userType = ''; // Variável para armazenar o tipo de usuário
+            const userTypeKey = 'userType';
+            const usernameKey = 'username';
+            const isLoggedInKey = 'isLoggedIn';
+            let isLoggedIn = JSON.parse(localStorage.getItem(isLoggedInKey)) || false;
+            let userType = localStorage.getItem(userTypeKey);
+            let username = localStorage.getItem(usernameKey);
+            let redirectToCampaign = false;
 
-            // Scroll suave para os links de navegação
+            function initializeInterface() {
+                if (isLoggedIn) {
+                    showProfileDropdown(username, userType);
+                    $("#loginForm button[type='submit']").prop('disabled', true);
+                } else {
+                    $("#loginLink").show();
+                    $("#registerItem").show();
+                    $("#loginForm button[type='submit']").prop('disabled', false);
+                }
+            }
+
             $(".scroll-link").click(function (event) {
                 event.preventDefault();
                 const target = $(this).attr("href");
                 $("html, body").animate({ scrollTop: $(target).offset().top - 70 }, 800);
             });
 
-            // Aplicando máscaras de CPF e CNPJ
             $("#cpf").mask("000.000.000-00", { reverse: true });
             $("#cnpj").mask("00.000.000/0000-00", { reverse: true });
 
-            // Alterna os campos de acordo com o tipo de usuário selecionado
             $("#tipoUsuario").change(function () {
                 if ($(this).val() === "fisica") {
                     $("#fisicaFields").show();
@@ -571,119 +674,199 @@
                 }
             }).trigger("change");
 
-            // Função para exibir alertas personalizados
             function showAlert(message, type = 'success') {
                 const alertContainer = $("#registerAlertContainer");
-                alertContainer.removeClass('alert-success alert-danger').addClass(`alert-${type}`);
+                alertContainer.removeClass('alert-success alert-danger alert-warning alert-info').addClass(`alert-${type}`);
                 $("#alertMessage").text(message);
                 alertContainer.fadeIn();
                 setTimeout(() => alertContainer.fadeOut(), 3000);
             }
 
-            // Exibir alerta personalizado ao enviar o formulário de cadastro
-            $("#userForm").submit(function (event) {
-                event.preventDefault();
-                if (this.checkValidity()) {
-                    showAlert("Cadastro realizado com sucesso!", 'success');
-                    $('#registerModal').modal('hide');
-                    window.location.href = 'pages/criar-campanha.html';
+            function showProfileDropdown(user, type) {
+                $("#profileDropdown").remove(); // Remove dropdown se já existir
+                $("#loginLink").hide();
+                $("#registerItem").hide();
+
+                const profileIcon = `
+        <li class="nav-item dropdown" id="profileDropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-user-circle fa-lg"></i> Olá, ${user}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
+                <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
+            </ul>
+        </li>`;
+
+                $(".navbar-nav").append(profileIcon);
+                localStorage.setItem(userTypeKey, type);
+                localStorage.setItem(usernameKey, user);
+                localStorage.setItem(isLoggedInKey, true);
+
+                $("#accountName").text(type === 'fisica' ? 'DOADOR' : 'EMPRESA');
+                $("#myCampaigns").text(type === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas');
+                if (type === 'fisica') {
+                    $("#createCampaign").hide();
                 } else {
-                    showAlert('Erro ao cadastrar, por favor, tente novamente.', 'danger');
-                    this.reportValidity();
-                }
-            });
-
-            // Função para simular login e exibir dropdown de perfil
-            function showProfileDropdown(username, type) {
-                if (!isLoggedIn) {
-                    $("#loginLink").hide();
-                    $("#registerItem").hide();
-
-                    // Adicionar ícone de perfil ao invés dos botões
-                    const profileIcon = `
-            <li class="nav-item dropdown" id="profileDropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-user-circle fa-lg"></i> Olá, ${username}
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#accountModal">Conta</a></li>
-                    <li><a class="dropdown-item" href="#" id="logout">Sair</a></li>
-                </ul>
-            </li>`;
-
-                    $(".navbar-nav").append(profileIcon);
-                    isLoggedIn = true; // Marcar como logado
-                    userType = type;  // Salvar o tipo de usuário
-
-                    // Configurações do modal com base no tipo de usuário
-                    $("#accountName").text(type === 'fisica' ? 'DOADOR' : 'EMPRESA');
-                    $("#myCampaigns").text(type === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas');
-                    if (type === 'fisica') {
-                        $("#createCampaign").hide();
-                    } else {
-                        $("#createCampaign").show();
-                    }
+                    $("#createCampaign").show();
                 }
             }
 
-            // Envia o formulário de login com validação fictícia
-            $("#loginForm").submit(function (event) {
-                event.preventDefault();
-                if (!isLoggedIn) { // Verificar se já está logado
-                    const email = $("#loginEmail").val();
-                    const password = $("#loginPassword").val();
-                    userType = email.endsWith("@empresa.com") ? "juridica" : "fisica"; // Determinar tipo de usuário
+            function showAccountMenu() {
+                const mainMenu = `
+        <div class="text-center">
+            <img src="assets/images/profile-conta.jpg" alt="Profile Image" class="img-thumbnail" width="100">
+            <button class="btn btn-link">Subir/Editar Imagem</button>
+        </div>
+        <h5 id="accountName">${userType === 'fisica' ? 'DOADOR' : 'EMPRESA'}</h5>
+        <p>${username}</p>
+        <div class="d-grid gap-2">
+            <button class="btn btn-primary" id="myData">Meus Dados</button>
+            <button class="btn btn-primary" id="myCampaigns">${userType === 'fisica' ? 'Minhas Doações' : 'Minhas Campanhas'}</button>
+            ${userType === 'juridica' ? '<button class="btn btn-primary" id="createCampaign">Criar Campanha</button>' : ''}
+            <button class="btn btn-secondary" id="settings">Configurações</button>
+        </div>
+        `;
+                $('#accountModal .modal-body').html(mainMenu);
+            }
 
-                    if ((email === "usuario@exemplo.com" && password === "123456") ||
-                        (email === "usuario@empresa.com" && password === "654321")) {
-                        alert("Login bem-sucedido!");
+            $(document).on('click', '#myData', function () {
+                let content = '';
+                if (userType === 'fisica') {
+                    content = `
+            <h5>Seus Dados:</h5>
+            <p>Nome: Alice Dias</p>
+            <p>Email: usuario@exemplo.com</p>
+            <p>CPF: 000.000.000-00</p>
+            `;
+                } else {
+                    content = `
+            <h5>Dados da Empresa:</h5>
+            <p>Nome: Empresa XYZ</p>
+            <p>Email: usuario@empresa.com</p>
+            <p>CNPJ: 00.000.000/0000-00</p>
+            `;
+                }
+                content += `<button class="btn btn-link" id="backToMenu">Voltar</button>`;
+                $('#accountModal .modal-body').html(content);
+            });
 
-                        const username = userType === 'fisica' ? 'Alfred' : 'Empresa XYZ';
-                        showProfileDropdown(username, userType);
+            $(document).on('click', '#myCampaigns', function () {
+                let content = '';
+                if (userType === 'fisica') {
+                    content = `
+            <h5>Minhas Doações:</h5>
+            <ul class="list-group">
+                <li class="list-group-item">Doação 1: R$ 100,00 para Campanha X</li>
+                <li class="list-group-item">Doação 2: R$ 200,00 para Campanha Y</li>
+            </ul>
+            `;
+                } else {
+                    content = `
+            <h5>Dashboard de Campanhas:</h5>
+            <ul class="list-group">
+                <li class="list-group-item">Campanha A: R$ 5000,00 arrecadados</li>
+                <li class="list-group-item">Campanha B: R$ 3000,00 arrecadados</li>
+            </ul>
+            `;
+                }
+                content += `<button class="btn btn-link" id="backToMenu">Voltar</button>`;
+                $('#accountModal .modal-body').html(content);
+            });
 
-                        $('#loginModal').modal('hide');
-                    } else {
-                        alert("Email ou senha incorretos!");
-                    }
+            $(document).on('click', '#createCampaign', function () {
+                if (userType === 'juridica') {
+                    window.location.href = 'pages/criar-campanha.html';
                 }
                 if (isLoggedIn && userType === 'juridica') {
                     window.location.href = 'pages/criar-campanha.html';
                 }
             });
 
-            // Configura o comportamento do botão Sair
+            $(document).on('click', '#settings', function () {
+                const content = `
+        <h5>Configurações da Conta:</h5>
+        <button class="btn btn-secondary">Alterar Senha</button>
+        <button class="btn btn-secondary">Configurações de Privacidade</button>
+        <button class="btn btn-link" id="backToMenu">Voltar</button>
+        `;
+                $('#accountModal .modal-body').html(content);
+            });
+
+            $(document).on('click', '#backToMenu', function () {
+                showAccountMenu();
+            });
+
+            $("#loginForm").submit(function (event) {
+                event.preventDefault();
+
+                if (isLoggedIn) {
+                    alert("Já existe uma sessão ativa. Por favor, saia antes de fazer login novamente.");
+                    return;
+                }
+
+                const email = $("#loginEmail").val();
+                const password = $("#loginPassword").val();
+                userType = email.endsWith("@empresa.com") ? "juridica" : "fisica";
+
+                if ((email === "usuario@exemplo.com" && password === "123456") ||
+                    (email === "usuario@empresa.com" && password === "654321")) {
+                    username = userType === 'fisica' ? 'Alice Dias' : 'Empresa XYZ';
+                    alert("Login bem-sucedido!");
+                    showProfileDropdown(username, userType);
+                    isLoggedIn = true;
+
+                    $('#loginModal').modal('hide');
+
+                    if (redirectToCampaign && userType === 'juridica') {
+                        window.location.href = 'pages/criar-campanha.html';
+                    } else if (redirectToCampaign && userType === 'fisica') {
+                        alert("Somente usuários corporativos podem criar campanhas.");
+                    }
+                    redirectToCampaign = false;
+                } else {
+                    alert("Email ou senha incorretos!");
+                }
+            });
+
+
             $(document).on('click', '#logout', function () {
                 $("#profileDropdown").remove();
                 $("#loginLink").show();
                 $("#registerItem").show();
-                isLoggedIn = false; // Resetar estado de login
-                userType = '';      // Resetar tipo de usuário
+                isLoggedIn = false;
+                redirectToCampaign = false;
+                userType = '';
+                username = '';
+                localStorage.removeItem(userTypeKey);
+                localStorage.removeItem(usernameKey);
+                localStorage.removeItem(isLoggedInKey);
+                $("#loginForm button[type='submit']").prop('disabled', false);
             });
 
-            // Abre o modal de cadastro a partir do modal de login
-            $('#loginModal').on('show.bs.modal', function () {
-                $('#registerLink').on('click', function () {
-                    $('#loginModal').modal('hide');
-                    $('#registerModal').modal('show');
-                });
-            });
-
-            // Redirecionamento ao clicar em "Crie uma Campanha"
             $('#createCampaignButton').click(function (event) {
                 event.preventDefault();
-                if (isLoggedIn && userType === 'juridica') {
-                    window.location.href = 'pages/criar-campanha.html';
-                } else if (!isLoggedIn) {
-                    $('#loginModal').modal('show');
+                if (isLoggedIn) {
+                    if (userType === 'juridica') {
+                        window.location.href = 'pages/criar-campanha.html';
+                    } else {
+                        alert("Somente usuários corporativos podem criar campanhas.");
+                    }
                 } else {
-                    alert("Somente usuários corporativos podem criar campanhas.");
+                    $('#loginModal').modal('show');
+                    redirectToCampaign = true;
                 }
             });
+
+            $('#accountModal').on('show.bs.modal', function () {
+                showAccountMenu();
+            });
+
+            initializeInterface();
         });
     </script>
 
-
-
+    <script src="js/campanhas.js"></script>
 </body>
 
 </html>

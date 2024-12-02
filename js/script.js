@@ -144,3 +144,48 @@ $(document).ready(function () {
     }
   });
 });
+
+
+const campanhas = [
+  {
+    nome: "Educação para Todos",
+    categoria: "Educação",
+    alcance: 5000,
+    descricao:
+      "Projeto para fornecer material escolar para crianças carentes.",
+    imagem: "../assets/images/educacao.png",
+  },
+  {
+    nome: "Saúde em Primeiro Lugar",
+    categoria: "Saúde",
+    alcance: 10000,
+    descricao:
+      "Campanha de vacinação e check-up gratuito em comunidades.",
+    imagem: "../assets/images/saude.png",
+  },
+  {
+    nome: "Preservação da Amazônia",
+    categoria: "Meio Ambiente",
+    alcance: 50000,
+    descricao:
+      "Iniciativa para plantar árvores e preservar a floresta amazônica.",
+    imagem: "../assets/images/meio-ambiente.jpg",
+  }
+];
+
+function criarCardCampanha(campanha) {
+  return `
+          <div class="col-md-4">
+              <div class="card">
+                  <img src="${campanha.imagem}" class="card-img-top" alt="${campanha.nome}">
+                  <span class="card-category">${campanha.categoria}</span>
+                  <div class="card-body">
+                      <h5 class="card-title">${campanha.nome}</h5>
+                      <p class="card-text"><i class="fas fa-users"></i> Alcance: ${campanha.alcance} pessoas</p>
+                      <p class="card-text">${campanha.descricao}</p>
+                      <a href="./pagina-campanha.html?categoria=${campanha.categoria}" class="btn btn-primary">Ver Campanha</a>
+                  </div>
+              </div>
+          </div>
+      `;
+}
